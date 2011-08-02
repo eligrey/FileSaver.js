@@ -25,7 +25,7 @@ var saveAs = saveAs || (function(view) {
 		, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
 		, can_use_save_link = "download" in save_link
 		, click = function(node) {
-			var event = document.createEvent("MouseEvents");
+			var event = doc.createEvent("MouseEvents");
 			event.initMouseEvent(
 				"click", true, false, view, 0, 0, 0, 0, 0
 				, false, false, false, false, 0, null
@@ -75,6 +75,7 @@ var saveAs = saveAs || (function(view) {
 				, type = blob.type
 				, blob_changed = false
 				, object_url
+				, target_view
 				, get_object_url = function() {
 					var object_url = get_URL().createObjectURL(blob);
 					deletion_queue.push(object_url);
@@ -101,7 +102,6 @@ var saveAs = saveAs || (function(view) {
 					};
 				}
 				, create_if_not_found = {create: true, exclusive: false}
-				, target_view
 				, slice
 			;
 			filesaver.readyState = filesaver.INIT;
