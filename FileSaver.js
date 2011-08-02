@@ -79,8 +79,8 @@ var saveAs = saveAs || (function(view) {
 			if (!name) {
 				name = "download";
 			}
-			// Object and web filesystem URLs have a problem saving in WebKit when viewed
-			// in a tab, so I force object URLs to save with application/octet-stream
+			// Object and web filesystem URLs have a problem saving in Google Chrome when
+			// viewed in a tab, so I force save with application/octet-stream
 			// http://code.google.com/p/chromium/issues/detail?id=91158
 			if (view.chrome && type !== force_saveable_type) {
 				slice = blob.slice || blob.webkitSlice;
