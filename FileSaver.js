@@ -1,13 +1,13 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 2011-08-01
+ * 2011-08-02
  * 
  * By Eli Grey, http://eligrey.com
  * License: X11/MIT
  *   See LICENSE.md
  */
 
-/*global self, open, setTimeout */
+/*global self */
 /*jslint bitwise: true, regexp: true, confusion: true, es5: true, vars: true, white: true,
   plusplus: true */
 
@@ -16,11 +16,26 @@
 var saveAs = saveAs || (function(view) {
 	"use strict";
 	var
-		  URL = view.URL || view.webkitURL || view
+		  doc = view.document
+		  // only get URL when necessary in case BlobBuilder.js hasn't overridden it yet
+		, get_URL = function() {
+			return view.URL || view.webkitURL || view;
+		}
+		, URL = view.URL || view.webkitURL || view
+		, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
+		, can_use_save_link = "download" in save_link
+		, click = function(node) {
+			var event = document.createEvent("MouseEvents");
+			event.initMouseEvent(
+				"click", true, false, view, 0, 0, 0, 0, 0
+				, false, false, false, false, 0, null
+			);
+			return node.dispatchEvent(event); // false if event was cancelled
+		}
 		, webkit_req_fs = view.webkitRequestFileSystem
 		, req_fs = view.requestFileSystem || webkit_req_fs || view.mozRequestFileSystem
 		, throw_outside = function (ex) {
-			(view.setImmediate || setTimeout)(function() {
+			(view.setImmediate || view.setTimeout)(function() {
 				throw ex;
 			}, 0);
 		}
@@ -54,16 +69,29 @@ var saveAs = saveAs || (function(view) {
 			}
 		}
 		, FileSaver = function(blob, name) {
+			// First try a.download, then web filesystem, then object URLs
 			var
 				  filesaver = this
 				, type = blob.type
+				, blob_changed = false
+				, object_url
+				, get_object_url = function() {
+					var object_url = get_URL().createObjectURL(blob);
+					deletion_queue.push(object_url);
+					return object_url;
+				}
+				, dispatch_all = function() {
+					dispatch(filesaver, "writestart progress write writeend".split(" "));
+				}
 				// on any filesys errors revert to saving with object URLs
 				, fs_error = function() {
-					var object_url = URL.createObjectURL(blob);
+					// don't create more object URLs than needed
+					if (blob_changed || !object_url) {
+						object_url = get_object_url(blob);
+					}
 					target_view.location.href = object_url;
-					deletion_queue.push(object_url);
 					filesaver.readyState = filesaver.DONE;
-					dispatch(filesaver, "writestart progress write writeend".split(" "));
+					dispatch_all();
 				}
 				, abortable = function(func) {
 					return function() {
@@ -72,6 +100,7 @@ var saveAs = saveAs || (function(view) {
 						}
 					};
 				}
+				, create_if_not_found = {create: true, exclusive: false}
 				, target_view
 				, slice
 			;
@@ -79,12 +108,23 @@ var saveAs = saveAs || (function(view) {
 			if (!name) {
 				name = "download";
 			}
+			if (can_use_save_link) {
+				object_url = get_object_url(blob);
+				save_link.href = object_url;
+				save_link.download = name;
+				if (click(save_link)) {
+					filesaver.readyState = filesaver.DONE;
+					dispatch_all();
+					return;
+				}
+			}
 			// Object and web filesystem URLs have a problem saving in Google Chrome when
 			// viewed in a tab, so I force save with application/octet-stream
 			// http://code.google.com/p/chromium/issues/detail?id=91158
-			if (view.chrome && type !== force_saveable_type) {
+			if (view.chrome && type && type !== force_saveable_type) {
 				slice = blob.slice || blob.webkitSlice;
 				blob = slice.call(blob, 0, blob.size, force_saveable_type);
+				blob_changed = true;
 			}
 			// Since I can't be sure that the guessed media type will trigger a download
 			// in WebKit, I append .download to the filename.
@@ -93,9 +133,9 @@ var saveAs = saveAs || (function(view) {
 				name += ".download";
 			}
 			if (type === force_saveable_type || webkit_req_fs) {
-				target_view = self;
+				target_view = view;
 			} else {
-				target_view = open();
+				target_view = view.open();
 			}
 			if (!req_fs) {
 				fs_error();
@@ -103,9 +143,9 @@ var saveAs = saveAs || (function(view) {
 			}
 			fs_min_size += blob.size;
 			req_fs(view.TEMPORARY, fs_min_size, abortable(function(fs) {
-				fs.root.getDirectory("saved", {create:true, exclusive: false}, abortable(function(dir) {
+				fs.root.getDirectory("saved", create_if_not_found, abortable(function(dir) {
 					var save = function() {
-						dir.getFile(name, {create:true, exclusive: false}, abortable(function(file) {
+						dir.getFile(name, create_if_not_found, abortable(function(file) {
 							file.createWriter(abortable(function(writer) {
 								writer.onwriteend = function(event) {
 									target_view.location.href = file.toURL();
