@@ -1,6 +1,6 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 2011-07-13
+ * 2011-08-01
  * 
  * By Eli Grey, http://eligrey.com
  * License: X11/MIT
@@ -62,17 +62,18 @@ var saveAs = saveAs || (function(view) {
 					var object_url = URL.createObjectURL(blob);
 					target_view.location.href = object_url;
 					deletion_queue.push(object_url);
-					filesaver.readyState = 2; // DONE
+					filesaver.readyState = filesaver.DONE;
 					dispatch(filesaver, "writestart progress write writeend".split(" "));
 				}
 				, abortable = function(func) {
 					return function() {
-						if (filesaver.readyState !== 2) { // DONE
+						if (filesaver.readyState !== filesaver.DONE) {
 							return func.apply(this, arguments);
 						}
 					};
 				}
 				, target_view
+				, slice
 			;
 			filesaver.readyState = filesaver.INIT;
 			if (!name) {
@@ -80,10 +81,14 @@ var saveAs = saveAs || (function(view) {
 			}
 			// Object and web filesystem URLs have a problem saving in WebKit when viewed
 			// in a tab, so I force object URLs to save with application/octet-stream
-			// and web filesystem URLs to save by appending .download to the filename.
-			if (blob.webkitSlice && type !== force_saveable_type) {
-				blob = blob.webkitSlice(0, blob.size, force_saveable_type);
+			// http://code.google.com/p/chromium/issues/detail?id=91158
+			if (view.chrome && type !== force_saveable_type) {
+				slice = blob.slice || blob.webkitSlice;
+				blob = slice.call(blob, 0, blob.size, force_saveable_type);
 			}
+			// Since I can't be sure that the guessed media type will trigger a download
+			// in WebKit, I append .download to the filename.
+			// https://bugs.webkit.org/show_bug.cgi?id=65440
 			if (webkit_req_fs && name !== "download") {
 				name += ".download";
 			}
