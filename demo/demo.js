@@ -1,5 +1,5 @@
 /* FileSaver.js demo script
- * 2011-07-14
+ * 2011-08-02
  * 
  * By Eli Grey, http://eligrey.com
  * License: X11/MIT
@@ -18,8 +18,11 @@ var
 		return document.getElementById(id);
 	}
 	, session = view.sessionStorage
-	, BlobBuilder = view.BlobBuilder || view.WebKitBlobBuilder || view.MozBlobBuilder
-	
+	// only get URL when necessary in case BlobBuilder.js hasn't defined it yet
+	, get_blob_builder = function() {
+		return view.BlobBuilder || view.WebKitBlobBuilder || view.MozBlobBuilder;
+	}
+
 	, canvas = $("canvas")
 	, canvas_options_form = $("canvas-options")
 	, canvas_filename = $("canvas-filename")
@@ -168,7 +171,8 @@ canvas_options_form.addEventListener("submit", function(event) {
 
 text_options_form.addEventListener("submit", function(event) {
 	event.preventDefault();
-	var bb = new BlobBuilder;
+	var BB = get_blob_builder();
+	var bb = new BB;
 	bb.append(text.value || text.placeholder);
 	saveAs(
 		  bb.getBlob("text/plain;charset=" + document.characterSet)
@@ -179,7 +183,8 @@ text_options_form.addEventListener("submit", function(event) {
 html_options_form.addEventListener("submit", function(event) {
 	event.preventDefault();
 	var
-		  bb = new BlobBuilder
+		  BB = get_blob_builder()
+		, bb = new BB
 		, xml_serializer = new XMLSerializer
 		, doc = create_html_doc(html)
 	;
