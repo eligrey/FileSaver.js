@@ -12,15 +12,14 @@ sent to an external server.
 Supported Browsers
 ------------------
 
+* Internet Explorer 10+
 * Firefox 4+
-* †Google Chrome
+* Google Chrome
 * Opera 11+
 * Safari 5+
 
 Unlisted versions of browsers (e.g. Firefox 3.6) will probably work too; I just haven't
 tested them.
-
-† Google Chrome 14+ supports saving with filenames
 
 Syntax
 ------
@@ -60,9 +59,13 @@ this.
 
 ### Aborting a save
 
+Note that Internet Explorer cannot abort saves, so 
+
     var filesaver = saveAs(blob, "whatever");
-	cancel_button.addEventListener("click", function() {
-        filesaver.abort();
+    cancel_button.addEventListener("click", function() {
+        if (filesaver.abort) {
+            filesaver.abort();
+        }
     }, false);
 
 This isn't that useful unless you're saving very large files (e.g. generated video).
