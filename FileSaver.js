@@ -1,6 +1,6 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 2011-08-02
+ * 2012-12-11
  * 
  * By Eli Grey, http://eligrey.com
  * License: X11/MIT
@@ -13,7 +13,9 @@
 
 /*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
 
-var saveAs = saveAs || (function(view) {
+var saveAs = saveAs
+  || (navigator.msSaveOrOpenBlob && navigator.msSaveOrOpenBlob.bind(navigator))
+  || (function(view) {
 	"use strict";
 	var
 		  doc = view.document
