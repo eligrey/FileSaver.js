@@ -172,7 +172,7 @@ canvas_options_form.addEventListener("submit", function(event) {
 text_options_form.addEventListener("submit", function(event) {
 	event.preventDefault();
 	var
-		  BB = get_blob();
+		  BB = get_blob()
 		, bb = new BB(text.value || text.placeholder)
 	;
 	saveAs(
