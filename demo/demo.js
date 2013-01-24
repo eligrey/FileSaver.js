@@ -171,12 +171,12 @@ canvas_options_form.addEventListener("submit", function(event) {
 
 text_options_form.addEventListener("submit", function(event) {
 	event.preventDefault();
-	var
-		  BB = get_blob()
-		, bb = new BB(text.value || text.placeholder)
-	;
+	var BB = get_blob();
 	saveAs(
-		  bb.getBlob("text/plain;charset=" + document.characterSet)
+		  new BB(
+			  [text.value || text.placeholder]
+			, "text/plain;charset=" + document.characterSet
+		)
 		, (text_filename.value || text_filename.placeholder) + ".txt"
 	);
 }, false);
@@ -185,13 +185,14 @@ html_options_form.addEventListener("submit", function(event) {
 	event.preventDefault();
 	var
 		  BB = get_blob()
-		, bb
 		, xml_serializer = new XMLSerializer
 		, doc = create_html_doc(html)
 	;
-	bb = new BB(xml_serializer.serializeToString(doc));
 	saveAs(
-		  bb.getBlob("application/xhtml+xml;charset=" + document.characterSet)
+		  new BB(
+			  [xml_serializer.serializeToString(doc)]
+			, "application/xhtml+xml;charset=" + document.characterSet
+		)
 		, (html_filename.value || html_filename.placeholder) + ".xhtml"
 	);
 }, false);
