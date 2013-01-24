@@ -50,16 +50,7 @@ Note: The standard HTML5 `canvas.toBlob()` method is not available in all browse
 [canvas-toBlob.js][5] is a cross-browser `canvas.toBlob()` implementation that solves
 this.
 
-### Doing something after a file is saved
-
-    var filesaver = saveAs(blob, "secret stuff that you won't send to a server.truecrypt");
-    filesaver.onwriteend = function() {
-		// file saved, do something here
-    };
-
 ### Aborting a save
-
-Note that Internet Explorer cannot abort saves, so 
 
     var filesaver = saveAs(blob, "whatever");
     cancel_button.addEventListener("click", function() {
