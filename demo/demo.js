@@ -175,7 +175,7 @@ text_options_form.addEventListener("submit", function(event) {
 	saveAs(
 		  new BB(
 			  [text.value || text.placeholder]
-			, "text/plain;charset=" + document.characterSet
+			, {type: "text/plain;charset=" + document.characterSet}
 		)
 		, (text_filename.value || text_filename.placeholder) + ".txt"
 	);
@@ -191,7 +191,7 @@ html_options_form.addEventListener("submit", function(event) {
 	saveAs(
 		  new BB(
 			  [xml_serializer.serializeToString(doc)]
-			, "application/xhtml+xml;charset=" + document.characterSet
+			, {type: "application/xhtml+xml;charset=" + document.characterSet}
 		)
 		, (html_filename.value || html_filename.placeholder) + ".xhtml"
 	);
