@@ -31,12 +31,11 @@ Examples
 
 ### Saving text
 
-    var bb = new BlobBuilder;
-    bb.append("Hello, world!");
-    saveAs(bb.getBlob("text/plain;charset=utf-8"), "hello world.txt");
+    var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
+    saveAs(blob, "hello world.txt");
 
-The standard W3C File API [`BlobBuilder`][3] interface is not available in all browsers.
-[BlobBuilder.js][4] is a cross-browser `BlobBuilder` implementation that solves this.
+The standard W3C File API [`Blob`][3] interface is not available in all browsers.
+[Blob.js][4] is a cross-browser `BlobBuilder` implementation that solves this.
 
 ### Saving a canvas
 
@@ -65,6 +64,6 @@ This isn't that useful unless you're saving very large files (e.g. generated vid
 
   [1]: http://www.w3.org/TR/file-writer-api/#the-filesaver-interface
   [2]: http://oftn.org/projects/FileSaver.js/demo/
-  [3]: http://www.w3.org/TR/file-writer-api/#the-blobbuilder-interface
-  [4]: https://github.com/eligrey/BlobBuilder.js
+  [3]: https://developer.mozilla.org/en-US/docs/DOM/Blob
+  [4]: https://github.com/eligrey/Blob.js
   [5]: https://github.com/eligrey/canvas-toBlob.js
