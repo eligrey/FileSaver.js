@@ -60,7 +60,7 @@ this.
 
 This isn't that useful unless you're saving very large files (e.g. generated video).
 
-![Tracking image](//in.getclicky.com/212712ns.gif)
+![Tracking image](https://in.getclicky.com/212712ns.gif)
 
   [1]: http://www.w3.org/TR/file-writer-api/#the-filesaver-interface
   [2]: http://oftn.org/projects/FileSaver.js/demo/
