@@ -92,7 +92,9 @@ var saveAs = saveAs
 					if (blob_changed || !object_url) {
 						object_url = get_object_url(blob);
 					}
-					target_view.location.href = object_url;
+					if (target_view) {
+						target_view.location.href = object_url;
+					}
 					filesaver.readyState = filesaver.DONE;
 					dispatch_all();
 				}
