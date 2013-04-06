@@ -63,7 +63,7 @@ This isn't that useful unless you're saving very large files (e.g. generated vid
 ![Tracking image](https://in.getclicky.com/212712ns.gif)
 
   [1]: http://www.w3.org/TR/file-writer-api/#the-filesaver-interface
-  [2]: http://oftn.org/projects/FileSaver.js/demo/
+  [2]: http://eligrey.com/demos/FileSaver.js/
   [3]: https://developer.mozilla.org/en-US/docs/DOM/Blob
   [4]: https://github.com/eligrey/Blob.js
   [5]: https://github.com/eligrey/canvas-toBlob.js
