@@ -18,7 +18,7 @@ Supported Browsers
 * Opera 11+
 * Safari 5+
 
-Unlisted versions of browsers (e.g. Firefox 3.6) will probably work too; I just haven't
+Unlisted future versions of browsers will probably work too; I just haven't
 tested them.
 
 Syntax
