@@ -35,7 +35,7 @@ Examples
     saveAs(blob, "hello world.txt");
 
 The standard W3C File API [`Blob`][3] interface is not available in all browsers.
-[Blob.js][4] is a cross-browser `BlobBuilder` implementation that solves this.
+[Blob.js][4] is a cross-browser `Blob` implementation that solves this.
 
 ### Saving a canvas
 
