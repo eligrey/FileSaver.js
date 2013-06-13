@@ -12,9 +12,9 @@ sent to an external server.
 Supported Browsers
 ------------------
 
-* Internet Explorer 10+
-* Firefox 4+
-* Google Chrome
+* Internet Explorer 10+ (up to 600 MiB)
+* Firefox 4+ (up to 800 MiB)
+* Google Chrome (up to 345 MiB)
 * Opera 11+
 * Safari 5+
 
