@@ -12,9 +12,13 @@ sent to an external server.
 Supported Browsers
 ------------------
 
-* Internet Explorer 10+ (up to 600 MiB)
-* Firefox 4+ (up to 800 MiB)
-* Google Chrome (up to 345 MiB)
+* Internet Explorer 10+
+  * Up to 600 MiB per blob
+  * 1100 MiB total per page
+* Firefox 4+
+  * Up to 800 MiB per blob
+* Google Chrome
+  * Up to 345 MiB per blob
 * Opera 11+
 * Safari 5+
 
