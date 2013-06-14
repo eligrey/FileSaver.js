@@ -14,7 +14,6 @@ Supported Browsers
 
 * Internet Explorer 10+
   * Up to 600 MiB per blob
-  * 1100 MiB total per page
 * Firefox 4+
   * Up to 800 MiB per blob
 * Google Chrome
