@@ -19,7 +19,7 @@ Supported Browsers
 * Google Chrome
   * Up to 345 MiB per blob
 * Opera 11+
-* Safari 5+
+* Safari 5
 
 Unlisted future versions of browsers will probably work too; I just haven't
 tested them.
