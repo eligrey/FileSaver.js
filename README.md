@@ -19,7 +19,11 @@ Supported Browsers
 * Google Chrome
   * Up to 345 MiB per blob
 * Opera 11+
-* Safari 5
+  * Requires [Blob.js](https://github.com/eligrey/Blob.js)
+* Safari 5+
+  * Requires [Blob.js](https://github.com/eligrey/Blob.js)
+* Firefox <4
+  * Requires [Blob.js](https://github.com/eligrey/Blob.js)
 
 Unlisted future versions of browsers will probably work too; I just haven't
 tested them.
