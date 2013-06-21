@@ -146,6 +146,7 @@ canvas_clear_button.addEventListener("click", function() {
 		0;
 }, false);
 canvas.addEventListener("mousedown", function(event) {
+	event.preventDefault();
 	drawing = true;
 	add_point(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop, false);
 	draw();
