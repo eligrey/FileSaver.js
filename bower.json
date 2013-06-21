@@ -1,0 +1,7 @@
+{
+    "name": "FileSaver",
+    "version": "1.0.0",
+    "main": "./FileSaver.js",
+    "dependencies": {
+    }
+}
