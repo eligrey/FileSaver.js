@@ -25,10 +25,13 @@ Supported Browsers
   * **Supports filenames**
 * Safari 5+
   * Requires [Blob.js](https://github.com/eligrey/Blob.js)
+  * Does not support filenames
 * Opera ≤15
   * Requires [Blob.js](https://github.com/eligrey/Blob.js)
+  * Does not support filenames
 * Firefox <4
   * Requires [Blob.js](https://github.com/eligrey/Blob.js)
+  * Does not support filenames
 
 Unlisted future versions of browsers will probably work too; I just haven't
 tested them.
