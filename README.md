@@ -17,14 +17,17 @@ new HTML5 features.
 
 * Internet Explorer 10+
   * Up to 600 MiB per blob
-* Firefox 4+
+* Firefox
   * Up to 800 MiB per blob
+  * **Supports filenames**
 * Google Chrome
   * Up to 345 MiB per blob
   * **Supports filenames**
-* Opera 11+
-  * Requires [Blob.js](https://github.com/eligrey/Blob.js)
+* Opera Next
+  * **Supports filenames**
 * Safari 5+
+  * Requires [Blob.js](https://github.com/eligrey/Blob.js)
+* Opera ≤15
   * Requires [Blob.js](https://github.com/eligrey/Blob.js)
 * Firefox <4
   * Requires [Blob.js](https://github.com/eligrey/Blob.js)
