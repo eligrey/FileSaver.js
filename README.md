@@ -12,12 +12,16 @@ sent to an external server.
 Supported Browsers
 ------------------
 
+At this time, only some browsers support saving with a specific filename as it requires
+new HTML5 features.
+
 * Internet Explorer 10+
   * Up to 600 MiB per blob
 * Firefox 4+
   * Up to 800 MiB per blob
 * Google Chrome
   * Up to 345 MiB per blob
+  * **Supports filenames**
 * Opera 11+
   * Requires [Blob.js](https://github.com/eligrey/Blob.js)
 * Safari 5+
