@@ -21,6 +21,8 @@ Supported Browsers
 * Google Chrome
   * Up to 345 MiB per blob
   * **Supports filenames**
+* Google Chrome for Android Beta
+  * **Supports filenames**
 * Opera Next
   * **Supports filenames**
 * Safari 5+
