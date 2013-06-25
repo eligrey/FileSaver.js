@@ -1,7 +1,7 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
  * 2013-01-23
- * 
+ *
  * By Eli Grey, http://eligrey.com
  * License: X11/MIT
  *   See LICENSE.md
@@ -94,7 +94,9 @@ var saveAs = saveAs
 					}
 					if (target_view) {
 						target_view.location.href = object_url;
-					}
+					} else {
+                        window.open(object_url, "_blank");
+                    }
 					filesaver.readyState = filesaver.DONE;
 					dispatch_all();
 				}
@@ -137,8 +139,6 @@ var saveAs = saveAs
 			}
 			if (type === force_saveable_type || webkit_req_fs) {
 				target_view = view;
-			} else {
-				target_view = view.open();
 			}
 			if (!req_fs) {
 				fs_error();
@@ -201,7 +201,7 @@ var saveAs = saveAs
 	FS_proto.readyState = FS_proto.INIT = 0;
 	FS_proto.WRITING = 1;
 	FS_proto.DONE = 2;
-	
+
 	FS_proto.error =
 	FS_proto.onwritestart =
 	FS_proto.onprogress =
@@ -210,7 +210,7 @@ var saveAs = saveAs
 	FS_proto.onerror =
 	FS_proto.onwriteend =
 		null;
-	
+
 	view.addEventListener("unload", process_deletion_queue, false);
 	return saveAs;
 }(self));
