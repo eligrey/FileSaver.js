@@ -38,6 +38,10 @@ Supported Browsers
 Unlisted future versions of browsers will probably work too; I just haven't
 tested them.
 
+Feature detection is possible:
+
+    var isFileSaverSupported = !!self.Blob;
+
 Syntax
 ------
 
