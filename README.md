@@ -40,7 +40,7 @@ tested them.
 
 Feature detection is possible:
 
-    var isFileSaverSupported = !!new Blob();
+    try { var isFileSaverSupported = !!new Blob(); } catch(e){}
 
 Syntax
 ------
