@@ -40,7 +40,7 @@ tested them.
 
 Feature detection is possible:
 
-    var isFileSaverSupported = !!self.Blob;
+    var isFileSaverSupported = !!new Blob();
 
 Syntax
 ------
