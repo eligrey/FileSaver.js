@@ -38,9 +38,9 @@ Supported Browsers
 Unlisted future versions of browsers will probably work too; I just haven't
 tested them.
 
-Feature detection is possible:
+You can use the [blobconstructor feature detection code of Modernizr](https://github.com/Modernizr/Modernizr/blob/master/feature-detects/blob.js) to check whether FileSaver is supported by the client's browser:
 
-    try { var isFileSaverSupported = !!new Blob(); } catch(e){}
+    var isFileSaverSupported = Modernizr.blobconstructor;
 
 Syntax
 ------
