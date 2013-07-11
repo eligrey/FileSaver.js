@@ -9,34 +9,21 @@ FileSaver.js is the solution to saving files on the client side, and is perfect 
 webapps that need to generate files or for saving sensitive information that shouldn't be
 sent to an external server.
 
+
 Supported Browsers
 ------------------
 
-* Internet Explorer 10+
-  * Up to 600 MiB per blob
-  * **Supports filenames**
-* Firefox
-  * Up to 800 MiB per blob
-  * **Supports filenames**
-* Google Chrome
-  * Up to 345 MiB per blob
-  * **Supports filenames**
-* Google Chrome for Android Beta
-  * **Supports filenames**
-* Opera Next
-  * **Supports filenames**
-* Safari 5+
-  * Requires [Blob.js](https://github.com/eligrey/Blob.js)
-  * Does not support filenames
-* Opera ≤15
-  * Requires [Blob.js](https://github.com/eligrey/Blob.js)
-  * Does not support filenames
-* Firefox <4
-  * Requires [Blob.js](https://github.com/eligrey/Blob.js)
-  * Does not support filenames
+| Browser       | Support Type  | Filenames    | Size       | Dependancies |
+| ------------- | ------------- | ------------ | ---------- | ------------ |
+| Firefox 20+   | Blob          | Yes          | 800MiB/per | None         |
+| Firefox ≤19   | dataURL       | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Google Chrome | Blob          | Yes          | 354MiB/per | None         |
+| IE 10+        | Blob          | Yes          | 600MiB/per | None         |
+| Opera Next    | Blob          | Yes          |            | None         |
+| Opera ≤15     | datURL        | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Safari ≤6     | dataURL       | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
 
-Unlisted future versions of browsers will probably work too; I just haven't
-tested them.
+Note: Unlisted versions or browsers will probably work too; however only the ones listed above have been tested.
 
 Feature detection is possible:
 
