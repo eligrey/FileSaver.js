@@ -13,15 +13,16 @@ sent to an external server.
 Supported Browsers
 ------------------
 
-| Browser       | Constructs as | Filenames    | Size       | Dependancies |
-| ------------- | ------------- | ------------ | ---------- | ------------ |
-| Firefox 20+   | Blob          | Yes          | 800MiB/per | None         |
-| Firefox ≤ 19  | Blob          | NO           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
-| Chrome        | Blob          | Yes          | 345MiB/per | None         |
-| IE 10+        | Blob          | Yes          | 600MiB/per | None         |
-| Opera Next    | Blob          | Yes          |            | None         |
-| Opera < 15    | datURL        | NO           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
-| Safari ≤ 6    | dataURL       | NO           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Browser        | Constructs as | Filenames    | Size       | Dependancies |
+| -------------- | ------------- | ------------ | ---------- | ------------ |
+| Firefox 20+    | Blob          | Yes          | 800MiB/per | None         |
+| Firefox ≤ 19   | Blob          | NO           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Chrome         | Blob          | Yes          | 345MiB/per | None         |
+| Chrome for Android | Blob      | Yes          | 345MiB/per | None         |
+| IE 10+         | Blob          | Yes          | 600MiB/per | None         |
+| Opera Next     | Blob          | Yes          |            | None         |
+| Opera < 15     | datURL        | NO           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Safari ≤ 6     | dataURL       | NO           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
 
 Note: Unlisted versions or browsers will probably work too; however only the ones listed above have been tested.
 
