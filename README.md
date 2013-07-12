@@ -18,7 +18,7 @@ Supported Browsers
 | Firefox 20+    | Blob          | Yes          | 800MiB/per | None         |
 | Firefox ≤ 19   | Blob          | NO           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
 | Chrome         | Blob          | Yes          | 345MiB/per | None         |
-| Chrome for Android | Blob      | Yes          | 345MiB/per | None         |
+| Chrome for Android v28+ | Blob      | Yes          |            | None         |
 | IE 10+         | Blob          | Yes          | 600MiB/per | None         |
 | Opera Next     | Blob          | Yes          |            | None         |
 | Opera < 15     | datURL        | NO           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
