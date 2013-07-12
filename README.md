@@ -5,38 +5,26 @@ FileSaver.js implements the W3C `saveAs()` [FileSaver][1] interface in browsers 
 not natively support it. There is a [FileSaver.js demo][2] that demonstrates saving
 various media types.
 
-FileSaver.js is the solution to saving files on the client side, and is perfect for
-webapps that need to generate files or for saving sensitive information that shouldn't be
+FileSaver.js is the solution to saving files on the client-side, and is perfect for
+webapps that need to generate files, or for saving sensitive information that shouldn't be
 sent to an external server.
+
 
 Supported Browsers
 ------------------
 
-* Internet Explorer 10+
-  * Up to 600 MiB per blob
-  * **Supports filenames**
-* Firefox
-  * Up to 800 MiB per blob
-  * **Supports filenames**
-* Google Chrome
-  * Up to 345 MiB per blob
-  * **Supports filenames**
-* Google Chrome for Android Beta
-  * **Supports filenames**
-* Opera Next
-  * **Supports filenames**
-* Safari 5+
-  * Requires [Blob.js](https://github.com/eligrey/Blob.js)
-  * Does not support filenames
-* Opera ≤15
-  * Requires [Blob.js](https://github.com/eligrey/Blob.js)
-  * Does not support filenames
-* Firefox <4
-  * Requires [Blob.js](https://github.com/eligrey/Blob.js)
-  * Does not support filenames
+| Browser        | Constructs as | Filenames    | Size       | Dependancies |
+| -------------- | ------------- | ------------ | ---------- | ------------ |
+| Firefox 20+    | Blob          | Yes          | 800MiB/per | None         |
+| Firefox ≤ 19   | Blob          | NO           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Chrome         | Blob          | Yes          | 345MiB/per | None         |
+| Chrome for Android v28+ | Blob      | Yes          |            | None         |
+| IE 10+         | Blob          | Yes          | 600MiB/per | None         |
+| Opera Next     | Blob          | Yes          |            | None         |
+| Opera < 15     | datURL        | NO           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Safari ≤ 6     | dataURL       | NO           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
 
-Unlisted future versions of browsers will probably work too; I just haven't
-tested them.
+Note: Unlisted versions or browsers will probably work too; however only the ones listed above have been tested.
 
 Feature detection is possible:
 
@@ -67,8 +55,7 @@ The standard W3C File API [`Blob`][3] interface is not available in all browsers
     });
 
 Note: The standard HTML5 `canvas.toBlob()` method is not available in all browsers.
-[canvas-toBlob.js][5] is a cross-browser `canvas.toBlob()` implementation that solves
-this.
+[canvas-toBlob.js][5] is a cross-browser `canvas.toBlob()` that polyfills this.
 
 ### Aborting a save
 
