@@ -14,7 +14,7 @@
 /*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
 
 var saveAs = saveAs
-  || (navigator.msSaveBlob && navigator.msSaveBlob.bind(navigator))
+  || (navigator.msSaveOrOpenBlob && navigator.msSaveOrOpenBlob.bind(navigator))
   || (function(view) {
 	"use strict";
 	var
