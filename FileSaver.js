@@ -24,7 +24,9 @@ var saveAs = saveAs
 			return view.URL || view.webkitURL || view;
 		}
 		, URL = view.URL || view.webkitURL || view
-		, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
+		, save_link = doc.createElementNS
+			? doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
+			: doc.createElement("a")
 		, can_use_save_link =  !view.externalHost && "download" in save_link
 		, click = function(node) {
 			var event = doc.createEvent("MouseEvents");
@@ -211,6 +213,9 @@ var saveAs = saveAs
 	FS_proto.onwriteend =
 		null;
 
-	view.addEventListener("unload", process_deletion_queue, false);
+	view.addEventListener
+	? view.addEventListener("unload", process_deletion_queue, false)
+	: view.attachEvent("onunload", process_deletion_queue);
+
 	return saveAs;
 }(self));
