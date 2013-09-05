@@ -214,3 +214,5 @@ var saveAs = saveAs
 	view.addEventListener("unload", process_deletion_queue, false);
 	return saveAs;
 }(self));
+
+if (typeof module !== 'undefined') module.exports = saveAs;
