@@ -1,0 +1,23 @@
+{
+  "name": "FileSaver.js",
+  "version": "0.0.0",
+  "description": "A saveAs() FileSaver implementation",
+  "main": "FileSaver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eligrey/FileSaver.js.git"
+  },
+  "keywords": [
+    "filesaver",
+    "saveas",
+    "blob"
+  ],
+  "author": "Eli Grey",
+  "license": "MIT/X11",
+  "bugs": {
+    "url": "https://github.com/eligrey/FileSaver.js/issues"
+  }
+}
