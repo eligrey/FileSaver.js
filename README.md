@@ -24,6 +24,9 @@ Supported Browsers
 | Opera < 15     | data: URI     | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
 | Safari ≤ 6     | data: URI     | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
 
+Looking for `canvas.toBlob()` for saving canvases? Check out
+[canvas-toBlob.js](https://github.com/eligrey/canvas-toBlob.js) for a cross-browser implementation.
+
 Note: Unlisted versions or browsers will probably work too; however only the ones listed above have been tested.
 
 Feature detection is possible:
