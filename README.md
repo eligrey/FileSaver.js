@@ -9,6 +9,8 @@ FileSaver.js is the solution to saving files on the client-side, and is perfect 
 webapps that need to generate files, or for saving sensitive information that shouldn't be
 sent to an external server.
 
+Looking for `canvas.toBlob()` for saving canvases? Check out
+[canvas-toBlob.js](https://github.com/eligrey/canvas-toBlob.js) for a cross-browser implementation.
 
 Supported Browsers
 ------------------
@@ -23,9 +25,6 @@ Supported Browsers
 | Opera Next     | Blob          | Yes          |            | None         |
 | Opera < 15     | data: URI     | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
 | Safari ≤ 6     | data: URI     | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
-
-Looking for `canvas.toBlob()` for saving canvases? Check out
-[canvas-toBlob.js](https://github.com/eligrey/canvas-toBlob.js) for a cross-browser implementation.
 
 Note: Unlisted versions or browsers will probably work too; however only the ones listed above have been tested.
 
