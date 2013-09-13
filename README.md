@@ -13,7 +13,7 @@ sent to an external server.
 Supported Browsers
 ------------------
 
-| Browser        | Constructs as | Filenames    | Size       | Dependancies |
+| Browser        | Constructs as | Filenames    | Size       | Dependencies |
 | -------------- | ------------- | ------------ | ---------- | ------------ |
 | Firefox 20+    | Blob          | Yes          | 800MiB/per | None         |
 | Firefox ≤ 19   | data: URI     | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
