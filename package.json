@@ -1,6 +1,6 @@
 {
-  "name": "FileSaver.js",
-  "version": "0.0.0",
+  "name": "filesaver.js",
+  "version": "2013.1.23",
   "description": "A saveAs() FileSaver implementation",
   "main": "FileSaver.js",
   "scripts": {
