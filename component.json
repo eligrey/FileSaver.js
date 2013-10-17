@@ -1,0 +1,11 @@
+{
+    "name": "FileSaver.js",
+    "repo": "eligrey/FileSaver.js",
+    "description": "cross browser FileSaver implementation",
+    "version": "1.0.0",
+    "keywords": [ "filesaver", "saveas", "blob" ],
+    "scripts": [
+        "FileSaver.js"
+    ],
+    "main": "FileSaver.js"
+}
