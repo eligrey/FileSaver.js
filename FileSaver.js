@@ -1,6 +1,6 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 2013-01-23
+ * 2013-10-21
  *
  * By Eli Grey, http://eligrey.com
  * License: X11/MIT
@@ -224,7 +224,7 @@ var saveAs = saveAs
 
 	view.addEventListener("unload", process_deletion_queue, false);
 	return saveAs;
-}(typeof self !== 'undefined' ? self : typeof this !== 'undefined' && this.content ? this.content : null));
+}(this.self || this.window || this.content));
 // `self` is undefined in Firefox for Android content script context
 // while `this` is nsIContentFrameMessageManager
 // with an attribute `content` that corresponds to the window
