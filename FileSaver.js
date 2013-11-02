@@ -14,7 +14,7 @@
 /*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
 
 var saveAs = saveAs
-  || (typeof navigator !== 'undefined' && navigator.msSaveOrOpenBlob && navigator.msSaveOrOpenBlob.bind(navigator))
+  || (typeof navigator !== 'undefined' && navigator['msSaveOrOpenBlob'] && navigator['msSaveOrOpenBlob'].bind(navigator))
   || (function(view) {
 	"use strict";
 	var
@@ -35,7 +35,7 @@ var saveAs = saveAs
 			node.dispatchEvent(event);
 		}
 		, webkit_req_fs = view.webkitRequestFileSystem
-		, req_fs = view.requestFileSystem || webkit_req_fs || view.mozRequestFileSystem
+		, req_fs = view.requestFileSystem || webkit_req_fs || view['mozRequestFileSystem']
 		, throw_outside = function (ex) {
 			(view.setImmediate || view.setTimeout)(function() {
 				throw ex;
@@ -107,7 +107,7 @@ var saveAs = saveAs
 						}
 					};
 				}
-				, create_if_not_found = {create: true, exclusive: false}
+				, create_if_not_found = {create: true, 'exclusive': false}
 				, slice
 			;
 			filesaver.readyState = filesaver.INIT;
@@ -123,7 +123,7 @@ var saveAs = saveAs
 				doc = view.document;
 				save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a");
 				save_link.href = object_url;
-				save_link.download = name;
+				save_link['download'] = name;
 				var event = doc.createEvent("MouseEvents");
 				event.initMouseEvent(
 					"click", true, false, view, 0, 0, 0, 0, 0
@@ -229,4 +229,5 @@ var saveAs = saveAs
 // while `this` is nsIContentFrameMessageManager
 // with an attribute `content` that corresponds to the window
 
-if (typeof module !== 'undefined') module.exports = saveAs;
+window['saveAs'] = saveAs;
+if (typeof module !== 'undefined') module['exports'] = saveAs;
