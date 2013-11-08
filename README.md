@@ -20,11 +20,14 @@ Supported Browsers
 | Firefox 20+    | Blob          | Yes          | 800MiB/per | None         |
 | Firefox ≤ 19   | data: URI     | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
 | Chrome         | Blob          | Yes          | 345MiB/per | None         |
-| Chrome for Android v28+ | Blob      | Yes          |            | None         |
+| Chrome for Android | Blob      | Yes          |            | None         |
 | IE 10+         | Blob          | Yes          | 600MiB/per | None         |
 | Opera Next     | Blob          | Yes          |            | None         |
 | Opera < 15     | data: URI     | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
-| Safari ≤ 6     | data: URI     | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Safari 6.1+    | Blob          | No           |            | None         |
+| Safari < 6     | data: URI     | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
+
+
 
 Note: Unlisted versions or browsers will probably work too; however only the ones listed above have been tested.
 
