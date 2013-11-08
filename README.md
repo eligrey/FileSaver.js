@@ -15,17 +15,17 @@ Looking for `canvas.toBlob()` for saving canvases? Check out
 Supported Browsers
 ------------------
 
-| Browser        | Constructs as | Filenames    | Size       | Dependencies |
-| -------------- | ------------- | ------------ | ---------- | ------------ |
-| Firefox 20+    | Blob          | Yes          | 800MiB/per | None         |
-| Firefox ≤ 19   | data: URI     | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
-| Chrome         | Blob          | Yes          | 345MiB/per | None         |
-| Chrome for Android | Blob      | Yes          |            | None         |
-| IE 10+         | Blob          | Yes          | 600MiB/per | None         |
-| Opera Next     | Blob          | Yes          |            | None         |
-| Opera < 15     | data: URI     | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
-| Safari 6.1+    | Blob          | No           |            | None         |
-| Safari < 6     | data: URI     | No           |            | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Browser        | Constructs as | Filenames    | Max Blob Size | Dependencies |
+| -------------- | ------------- | ------------ | ------------- | ------------ |
+| Firefox 20+    | Blob          | Yes          | 800MiB        | None         |
+| Firefox ≤ 19   | data: URI     | No           |               | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Chrome         | Blob          | Yes          | 345MiB        | None         |
+| Chrome for Android | Blob      | Yes          |               | None         |
+| IE 10+         | Blob          | Yes          | 600MiB        | None         |
+| Opera Next     | Blob          | Yes          |               | None         |
+| Opera < 15     | data: URI     | No           |               | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Safari 6.1+    | Blob          | No           |               | None         |
+| Safari < 6     | data: URI     | No           |               | [Blob.js](https://github.com/eligrey/Blob.js) |
 
 
 
