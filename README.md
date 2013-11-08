@@ -18,18 +18,14 @@ Supported Browsers
 | Browser        | Constructs as | Filenames    | Max Blob Size | Dependencies |
 | -------------- | ------------- | ------------ | ------------- | ------------ |
 | Firefox 20+    | Blob          | Yes          | 800MiB        | None         |
-| Firefox ≤ 19   | data: URI     | No           |               | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Firefox ≤ 19   | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
 | Chrome         | Blob          | Yes          | 345MiB        | None         |
-| Chrome for Android | Blob      | Yes          |               | None         |
+| Chrome for Android | Blob      | Yes          | ?             | None         |
 | IE 10+         | Blob          | Yes          | 600MiB        | None         |
-| Opera Next     | Blob          | Yes          |               | None         |
-| Opera < 15     | data: URI     | No           |               | [Blob.js](https://github.com/eligrey/Blob.js) |
-| Safari 6.1+    | Blob          | No           |               | None         |
-| Safari < 6     | data: URI     | No           |               | [Blob.js](https://github.com/eligrey/Blob.js) |
-
-
-
-Note: Unlisted versions or browsers will probably work too; however only the ones listed above have been tested.
+| Opera Next     | Blob          | Yes          | ?             | None         |
+| Opera < 15     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Safari 6.1+    | Blob          | No           | ?             | None         |
+| Safari < 6     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
 
 Feature detection is possible:
 
