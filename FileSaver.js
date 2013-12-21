@@ -224,7 +224,7 @@ var saveAs = saveAs
 
 	view.addEventListener("unload", process_deletion_queue, false);
 	return saveAs;
-}(this.self || this.window || this.content));
+}(this.self || this.window || this.content || window));
 // `self` is undefined in Firefox for Android content script context
 // while `this` is nsIContentFrameMessageManager
 // with an attribute `content` that corresponds to the window
