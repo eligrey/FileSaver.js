@@ -24,7 +24,7 @@ Supported Browsers
 | IE 10+         | Blob          | Yes          | 600MiB        | None         |
 | Opera Next     | Blob          | Yes          | ?             | None         |
 | Opera < 15     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
-| 6 < Safari < 7 | Blob          | No           | ?             | None         |
+| Safari 6.1+    | Blob          | No           | ?             | None         |
 | Safari < 6     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
 
 Feature detection is possible:
@@ -37,6 +37,7 @@ Feature detection is possible:
 It is possible to save HTML documents (and only HTML documents) in IE < 10 without Flash-based
 polyfills. See [sudodoki's comment](https://github.com/eligrey/FileSaver.js/issues/56#issuecomment-30917476)
 for more information on how to accomplish this.
+
 
 Syntax
 ------
