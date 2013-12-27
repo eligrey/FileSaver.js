@@ -31,6 +31,13 @@ Feature detection is possible:
 
     try { var isFileSaverSupported = !!new Blob(); } catch(e){}
 
+
+### IE < 10
+
+It is possible to save HTML documents (and only HTML documents) in IE < 10 without Flash-based
+polyfills. See [sudodoki's comment](https://github.com/eligrey/FileSaver.js/issues/56#issuecomment-30917476)
+for more information on how to accomplish this.
+
 Syntax
 ------
 
