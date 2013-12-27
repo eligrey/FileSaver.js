@@ -74,7 +74,7 @@ Note: The standard HTML5 `canvas.toBlob()` method is not available in all browse
         }
     }, false);
 
-This isn't that useful unless you're saving very large files (e.g. generated video).
+This is only useful when you're saving very large files (e.g. generated video).
 
 ![Tracking image](https://in.getclicky.com/212712ns.gif)
 
