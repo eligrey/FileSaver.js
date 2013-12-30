@@ -44,15 +44,6 @@ Blobs may be opened instead of saved sometimes—you may have to direct your Saf
 press <kbd>⌘</kbd>+<kbd>S</kbd> to save the file after it is opened. Further information is available
 [on the issue tracker](https://github.com/eligrey/FileSaver.js/issues/12).
 
-
-Install via Bower
------------------
-
-You can install FileSaver.js via bower with the following command:
-
-    bower install FileSaver
-
-
 Syntax
 ------
 
