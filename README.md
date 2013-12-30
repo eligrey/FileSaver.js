@@ -45,10 +45,10 @@ press <kbd>⌘</kbd>+<kbd>S</kbd> to save the file after it is opened. Further i
 [on the issue tracker](https://github.com/eligrey/FileSaver.js/issues/12).
 
 
-Install Via Bower
+Install via bower
 ------
 
-You could install FileSaver.js via Bower by the following command
+You could install FileSaver.js via bower by the following command
 
 ```
 	bower install FileSaver
