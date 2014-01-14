@@ -71,16 +71,6 @@ The standard W3C File API [`Blob`][3] interface is not available in all browsers
 Note: The standard HTML5 `canvas.toBlob()` method is not available in all browsers.
 [canvas-toBlob.js][5] is a cross-browser `canvas.toBlob()` that polyfills this.
 
-### Aborting a save
-
-    var filesaver = saveAs(blob, "whatever");
-    cancel_button.addEventListener("click", function() {
-        if (filesaver.abort) {
-            filesaver.abort();
-        }
-    }, false);
-
-This is only useful when you're saving very large files (e.g. generated video).
 
 ![Tracking image](https://in.getclicky.com/212712ns.gif)
 
