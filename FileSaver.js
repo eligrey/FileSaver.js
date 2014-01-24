@@ -14,9 +14,15 @@
 /*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
 
 var saveAs = saveAs
-  || (typeof navigator !== "undefined" && navigator.msSaveOrOpenBlob && navigator.msSaveOrOpenBlob.bind(navigator))
+  // IE 10+ (native saveAs)
+  || (navigator.msSaveOrOpenBlob && navigator.msSaveOrOpenBlob.bind(navigator))
+  // Everyone else
   || (function(view) {
 	"use strict";
+	// IE <10 is explicitly unsupported
+	if (/MSIE [1-9]\./.test(navigator.userAgent)) {
+		return;
+	}
 	var
 		  doc = view.document
 		  // only get URL when necessary in case BlobBuilder.js hasn't overridden it yet
