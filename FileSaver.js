@@ -219,12 +219,12 @@ var saveAs = saveAs
 	FS_proto.DONE = 2;
 
 	FS_proto.error =
-		FS_proto.onwritestart =
-		FS_proto.onprogress =
-		FS_proto.onwrite =
-		FS_proto.onabort =
-		FS_proto.onerror =
-		FS_proto.onwriteend =
+	FS_proto.onwritestart =
+	FS_proto.onprogress =
+	FS_proto.onwrite =
+	FS_proto.onabort =
+	FS_proto.onerror =
+	FS_proto.onwriteend =
 		null;
 
 	view.addEventListener("unload", process_deletion_queue, false);
