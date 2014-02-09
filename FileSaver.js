@@ -1,15 +1,14 @@
-/* FileSaver.js
- * A saveAs() FileSaver implementation.
- * 2014-01-24
+/*! FileSaver.js
+ *  A saveAs() FileSaver implementation.
+ *  2014-01-24
  *
- * By Eli Grey, http://eligrey.com
- * License: X11/MIT
- *   See LICENSE.md
+ *  By Eli Grey, http://eligrey.com
+ *  License: X11/MIT
+ *    See LICENSE.md
  */
 
 /*global self */
-/*jslint bitwise: true, regexp: true, confusion: true, es5: true, vars: true, white: true,
-  plusplus: true */
+/*jslint bitwise: true, indent: 4, laxbreak: true, laxcomma: true, smarttabs: true, plusplus: true */
 
 /*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
 
@@ -31,7 +30,7 @@ var saveAs = saveAs
 		}
 		, URL = view.URL || view.webkitURL || view
 		, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
-		, can_use_save_link =  !view.externalHost && "download" in save_link
+		, can_use_save_link = !view.externalHost && "download" in save_link
 		, click = function(node) {
 			var event = doc.createEvent("MouseEvents");
 			event.initMouseEvent(
@@ -42,7 +41,7 @@ var saveAs = saveAs
 		}
 		, webkit_req_fs = view.webkitRequestFileSystem
 		, req_fs = view.requestFileSystem || webkit_req_fs || view.mozRequestFileSystem
-		, throw_outside = function (ex) {
+		, throw_outside = function(ex) {
 			(view.setImmediate || view.setTimeout)(function() {
 				throw ex;
 			}, 0);
@@ -101,8 +100,8 @@ var saveAs = saveAs
 					if (target_view) {
 						target_view.location.href = object_url;
 					} else {
-                        window.open(object_url, "_blank");
-                    }
+						window.open(object_url, "_blank");
+					}
 					filesaver.readyState = filesaver.DONE;
 					dispatch_all();
 				}
@@ -220,12 +219,12 @@ var saveAs = saveAs
 	FS_proto.DONE = 2;
 
 	FS_proto.error =
-	FS_proto.onwritestart =
-	FS_proto.onprogress =
-	FS_proto.onwrite =
-	FS_proto.onabort =
-	FS_proto.onerror =
-	FS_proto.onwriteend =
+		FS_proto.onwritestart =
+		FS_proto.onprogress =
+		FS_proto.onwrite =
+		FS_proto.onabort =
+		FS_proto.onerror =
+		FS_proto.onwriteend =
 		null;
 
 	view.addEventListener("unload", process_deletion_queue, false);
