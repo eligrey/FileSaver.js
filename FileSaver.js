@@ -228,6 +228,9 @@ var saveAs = saveAs
 		null;
 
 	view.addEventListener("unload", process_deletion_queue, false);
+	saveAs.unload = function() {
+		view.removeEventListener("unload", process_deletion_queue, false);
+	};
 	return saveAs;
 }(
 	   typeof self !== "undefined" && self
