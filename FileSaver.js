@@ -14,12 +14,14 @@
 
 var saveAs = saveAs
   // IE 10+ (native saveAs)
-  || (navigator.msSaveOrOpenBlob && navigator.msSaveOrOpenBlob.bind(navigator))
+  || (typeof navigator !== "undefined" &&
+      navigator.msSaveOrOpenBlob && navigator.msSaveOrOpenBlob.bind(navigator))
   // Everyone else
   || (function(view) {
 	"use strict";
 	// IE <10 is explicitly unsupported
-	if (/MSIE [1-9]\./.test(navigator.userAgent)) {
+	if (typeof navigator !== "undefined" &&
+	    /MSIE [1-9]\./.test(navigator.userAgent)) {
 		return;
 	}
 	var
