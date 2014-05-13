@@ -1,8 +1,8 @@
 FileSaver.js
 ============
 
-FileSaver.js implements the HTML5 W3C `saveAs()` [FileSaver][1] interface in browsers that do
-not natively support it. There is a [FileSaver.js demo][2] that demonstrates saving
+FileSaver.js implements the HTML5 W3C `saveAs()` FileSaver interface in browsers that do
+not natively support it. There is a [FileSaver.js demo][1] that demonstrates saving
 various media types.
 
 FileSaver.js is the solution to saving files on the client-side, and is perfect for
@@ -83,8 +83,7 @@ Note: The standard HTML5 `canvas.toBlob()` method is not available in all browse
 
 ![Tracking image](https://in.getclicky.com/212712ns.gif)
 
-  [1]: http://www.w3.org/TR/file-writer-api/#the-filesaver-interface
-  [2]: http://eligrey.com/demos/FileSaver.js/
+  [1]: http://eligrey.com/demos/FileSaver.js/
   [3]: https://developer.mozilla.org/en-US/docs/DOM/Blob
   [4]: https://github.com/eligrey/Blob.js
   [5]: https://github.com/eligrey/canvas-toBlob.js
