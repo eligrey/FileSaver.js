@@ -4,7 +4,7 @@
  *
  *  By Eli Grey, http://eligrey.com
  *  License: X11/MIT
- *    See LICENSE.md
+ *    See https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md
  */
 
 /*global self */
