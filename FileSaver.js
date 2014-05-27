@@ -1,6 +1,6 @@
 /*! FileSaver.js
  *  A saveAs() FileSaver implementation.
- *  2014-01-24
+ *  2014-05-27
  *
  *  By Eli Grey, http://eligrey.com
  *  License: X11/MIT
@@ -26,11 +26,10 @@ var saveAs = saveAs
 	}
 	var
 		  doc = view.document
-		  // only get URL when necessary in case BlobBuilder.js hasn't overridden it yet
+		  // only get URL when necessary in case Blob.js hasn't overridden it yet
 		, get_URL = function() {
 			return view.URL || view.webkitURL || view;
 		}
-		, URL = view.URL || view.webkitURL || view
 		, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
 		, can_use_save_link = !view.externalHost && "download" in save_link
 		, click = function(node) {
@@ -56,7 +55,7 @@ var saveAs = saveAs
 			while (i--) {
 				var file = deletion_queue[i];
 				if (typeof file === "string") { // file is an object URL
-					URL.revokeObjectURL(file);
+					get_URL().revokeObjectURL(file);
 				} else { // file is a File
 					file.remove();
 				}
