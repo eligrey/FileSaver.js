@@ -31,7 +31,7 @@ Feature detection is possible:
 
 ```js
 try {
-    var isFileSaverSupported = !!new Blob();
+    var isFileSaverSupported = !!new Blob;
 } catch (e) {}
 ```
 
