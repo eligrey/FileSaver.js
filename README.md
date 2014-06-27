@@ -44,8 +44,7 @@ for more information on how to accomplish this.
 ### Safari 6.1+
 
 Blobs may be opened instead of saved sometimes—you may have to direct your Safari users to manually
-press <kbd>⌘</kbd>+<kbd>S</kbd> to save the file after it is opened. Further information is available
-[on the issue tracker](https://github.com/eligrey/FileSaver.js/issues/12).
+press <kbd>⌘</kbd>+<kbd>S</kbd> to save the file after it is opened. Using the `application/octet-stream` MIME type to force downloads [can cause issues in Safari](https://github.com/eligrey/FileSaver.js/issues/12#issuecomment-47247096).
 
 Syntax
 ------
