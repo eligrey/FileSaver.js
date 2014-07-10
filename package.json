@@ -1,0 +1,24 @@
+{
+  "name": "filesaver",
+  "version": "0.2.0",
+  "description": "Cross-browser implementation of W3C saveAs API",
+  "main": "FileSaver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caseygrun/FileSaver.js.git"
+  },
+  "keywords": [
+    "file",
+    "save",
+    "polyfill"
+  ],
+  "author": "Eli Grey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caseygrun/FileSaver.js.git/issues"
+  },
+  "homepage": "https://github.com/caseygrun/FileSaver.js.git"
+}
