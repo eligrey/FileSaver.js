@@ -102,8 +102,8 @@ var saveAs = saveAs
 					if (target_view) {
 						target_view.location.href = object_url;
 					} else {
-						newTab = window.open(object_url, "_blank");
-						if (myWin == undefined && isSafari()) {
+						var newTab = window.open(object_url, "_blank");
+						if (newTab == undefined && isSafari()) {
 							//Apple do not allow window.open, see http://bit.ly/1kZffRI
 							window.location.href = object_url
 						}
