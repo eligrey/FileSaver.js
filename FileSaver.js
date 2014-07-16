@@ -92,7 +92,7 @@ var saveAs = saveAs
 				, dispatch_all = function() {
 					dispatch(filesaver, "writestart progress write writeend".split(" "));
 				},
-				is_safari = function() {return typeof safari !== "undefined";}
+				is_safari = function() {return typeof safari !== "undefined";},
 				// on any filesys errors revert to saving with object URLs
 				, fs_error = function() {
 					// don't create more object URLs than needed
