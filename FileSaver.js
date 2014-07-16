@@ -1,11 +1,12 @@
 /* FileSaver.js
- *  A saveAs() FileSaver implementation.
- *  2014-05-27
+ * A saveAs() FileSaver implementation.
+ * 2014-05-27
  *
- *  By Eli Grey, http://eligrey.com
- *  License: X11/MIT
- *    See https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md
+ * By Eli Grey, http://eligrey.com
+ * License: X11/MIT
+ *   See https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md
  */
+
 
 /*global self */
 /*jslint bitwise: true, indent: 4, laxbreak: true, laxcomma: true, smarttabs: true, plusplus: true */
@@ -92,7 +93,7 @@ var saveAs = saveAs
 				, dispatch_all = function() {
 					dispatch(filesaver, "writestart progress write writeend".split(" "));
 				},
-				isSafari = function() {return Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;}
+				is_safari = function() {return typeof safari !== "undefined";}
 				// on any filesys errors revert to saving with object URLs
 				, fs_error = function() {
 					// don't create more object URLs than needed
@@ -102,8 +103,8 @@ var saveAs = saveAs
 					if (target_view) {
 						target_view.location.href = object_url;
 					} else {
-						var newTab = window.open(object_url, "_blank");
-						if (newTab == undefined && isSafari()) {
+						var new_tab = window.open(object_url, "_blank");
+						if (new_tab == undefined && is_safari()) {
 							//Apple do not allow window.open, see http://bit.ly/1kZffRI
 							window.location.href = object_url
 						}
