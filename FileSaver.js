@@ -91,7 +91,8 @@ var saveAs = saveAs
 				}
 				, dispatch_all = function() {
 					dispatch(filesaver, "writestart progress write writeend".split(" "));
-				}
+				},
+				is_safari = function() {return typeof safari !== "undefined";},
 				// on any filesys errors revert to saving with object URLs
 				, fs_error = function() {
 					// don't create more object URLs than needed
@@ -101,7 +102,11 @@ var saveAs = saveAs
 					if (target_view) {
 						target_view.location.href = object_url;
 					} else {
-						window.open(object_url, "_blank");
+						var new_tab = window.open(object_url, "_blank");
+						if (new_tab == undefined && is_safari()) {
+							//Apple do not allow window.open, see http://bit.ly/1kZffRI
+							window.location.href = object_url
+						}
 					}
 					filesaver.readyState = filesaver.DONE;
 					dispatch_all();
