@@ -26,9 +26,18 @@ var saveAs = saveAs
 	}
 	var
 		  doc = view.document
-		  // only get URL when necessary in case Blob.js hasn't overridden it yet
-		, get_URL = function() {
-			return view.URL || view.webkitURL || view;
+		, revokeObjectURL = function(file) {
+			// only get revokeObjectURL when necessary in case Blob.js hasn't overridden it yet
+			var func = (view.URL && view.URL.revokeObjectURL)
+					|| (view.webkitURL && view.webkitURL.revokeObjectURL)
+					|| (view.revokeObjectURL);
+			return func(file);
+		}
+		, createObjectURL = function(blob) {
+			var func = (view.URL && view.URL.createObjectURL)
+					|| (view.webkitURL && view.webkitURL.createObjectURL)
+					|| (view.createObjectURL);
+			return func(blob);
 		}
 		, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
 		, can_use_save_link = !view.externalHost && "download" in save_link
@@ -55,7 +64,7 @@ var saveAs = saveAs
 			while (i--) {
 				var file = deletion_queue[i];
 				if (typeof file === "string") { // file is an object URL
-					get_URL().revokeObjectURL(file);
+					revokeObjectURL(file);
 				} else { // file is a File
 					file.remove();
 				}
@@ -85,7 +94,7 @@ var saveAs = saveAs
 				, object_url
 				, target_view
 				, get_object_url = function() {
-					var object_url = get_URL().createObjectURL(blob);
+					var object_url = createObjectURL(blob);
 					deletion_queue.push(object_url);
 					return object_url;
 				}
