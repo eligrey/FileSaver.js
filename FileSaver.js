@@ -1,6 +1,6 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 2014-07-21
+ * 2014-07-25
  *
  * By Eli Grey, http://eligrey.com
  * License: X11/MIT
@@ -53,13 +53,18 @@ var saveAs = saveAs
 		// the reasoning behind the timeout and revocation flow
 		, arbitrary_revoke_timeout = 10
 		, revoke = function(file) {
-			setTimeout(function() {
+			var revoker = function() {
 				if (typeof file === "string") { // file is an object URL
 					get_URL().revokeObjectURL(file);
 				} else { // file is a File
 					file.remove();
 				}
-			}, arbitrary_revoke_timeout);
+			};
+			if (view.chrome) {
+				revoker();
+			} else {
+				setTimeout(revoker, arbitrary_revoke_timeout);
+			}
 		}
 		, dispatch = function(filesaver, event_types, event) {
 			event_types = [].concat(event_types);
