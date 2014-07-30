@@ -1,5 +1,5 @@
 {
-  "name": "filesaver",
+  "name": "browser-filesaver",
   "version": "0.2.0",
   "description": "Cross-browser implementation of W3C saveAs API",
   "main": "FileSaver.js",
