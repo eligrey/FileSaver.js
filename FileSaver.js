@@ -31,7 +31,7 @@ var saveAs = saveAs
 			return view.URL || view.webkitURL || view;
 		}
 		, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
-		, can_use_save_link = !view.externalHost && "download" in save_link
+		, can_use_save_link = "download" in save_link
 		, click = function(node) {
 			var event = doc.createEvent("MouseEvents");
 			event.initMouseEvent(
