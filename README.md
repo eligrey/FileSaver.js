@@ -1,4 +1,5 @@
-# FileSaver.js
+FileSaver.js
+============
 
 FileSaver.js implements the HTML5 W3C `saveAs()` FileSaver interface in browsers that do
 not natively support it. There is a [FileSaver.js demo][1] that demonstrates saving
@@ -11,7 +12,8 @@ sent to an external server.
 Looking for `canvas.toBlob()` for saving canvases? Check out
 [canvas-toBlob.js](https://github.com/eligrey/canvas-toBlob.js) for a cross-browser implementation.
 
-## Supported Browsers
+Supported Browsers
+------------------
 
 | Browser        | Constructs as | Filenames    | Max Blob Size | Dependencies |
 | -------------- | ------------- | ------------ | ------------- | ------------ |
@@ -43,13 +45,15 @@ See [ChenWenBrian's `saveTextAs()`](https://github.com/ChenWenBrian/FileSaver.js
 Blobs may be opened instead of saved sometimes—you may have to direct your Safari users to manually
 press <kbd>⌘</kbd>+<kbd>S</kbd> to save the file after it is opened. Using the `application/octet-stream` MIME type to force downloads [can cause issues in Safari](https://github.com/eligrey/FileSaver.js/issues/12#issuecomment-47247096).
 
-## Syntax
+Syntax
+------
 
 ```js
 FileSaver saveAs(in Blob data, in DOMString filename)
 ```
 
-## Examples
+Examples
+--------
 
 ### Saving text
 
@@ -82,7 +86,8 @@ Note: The standard HTML5 `canvas.toBlob()` method is not available in all browse
   [4]: https://github.com/eligrey/Blob.js
   [5]: https://github.com/eligrey/canvas-toBlob.js
 
-## Contributing
+Contributing
+------------
 
 The `FileSaver.js` distribution file is compiled with Uglify.js like so:
 
