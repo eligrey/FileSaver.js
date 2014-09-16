@@ -85,3 +85,14 @@ Note: The standard HTML5 `canvas.toBlob()` method is not available in all browse
   [3]: https://developer.mozilla.org/en-US/docs/DOM/Blob
   [4]: https://github.com/eligrey/Blob.js
   [5]: https://github.com/eligrey/canvas-toBlob.js
+
+Contributing
+------------
+
+The `FileSaver.js` distribution file is compiled with Uglify.js like so:
+
+```bash
+uglifyjs FileSaver.js --comments /@source/ > FileSaver.min.js
+```
+
+Please make sure you build a production version before submitting a pull request.
