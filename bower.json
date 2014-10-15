@@ -1,0 +1,25 @@
+{
+  "name": "FileSaver.JS",
+  "version": "1.0.0",
+  "dependencies": {
+    "Blob.js": "https://github.com/eligrey/Blob.js.git"
+  },
+  "main": [
+    "./FileSaver.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "_*",
+    "docs-assets",
+    "examples",
+    "/fonts",
+    "js/tests",
+    "CNAME",
+    "CONTRIBUTING.md",
+    "Gruntfile.js",
+    "browserstack.json",
+    "composer.json",
+    "package.json",
+    "*.html"
+  ]
+}
