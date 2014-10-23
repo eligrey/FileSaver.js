@@ -2,7 +2,7 @@
   "name": "FileSaver.JS",
   "version": "1.0.0",
   "dependencies": {
-    "Blob.js": "https://github.com/eligrey/Blob.js.git"
+    "Blob.js": "https://github.com/francesco-strazzullo/Blob.js.git"
   },
   "main": [
     "./FileSaver.js"
