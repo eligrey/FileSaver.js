@@ -45,6 +45,10 @@ See [ChenWenBrian's `saveTextAs()`](https://github.com/ChenWenBrian/FileSaver.js
 Blobs may be opened instead of saved sometimes—you may have to direct your Safari users to manually
 press <kbd>⌘</kbd>+<kbd>S</kbd> to save the file after it is opened. Using the `application/octet-stream` MIME type to force downloads [can cause issues in Safari](https://github.com/eligrey/FileSaver.js/issues/12#issuecomment-47247096).
 
+### iOS
+
+saveAs must be run within a user interaction event such as onTouchDown or onClick; setTimeout will prevent saveAs from triggering. Due to restrictions in iOS saveAs opens in a new window instead of downloading, if you want this fixed please [tell Apple](https://bugs.webkit.org/show_bug.cgi?id=102914) how this bug is affecting you.
+
 Syntax
 ------
 
