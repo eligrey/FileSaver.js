@@ -47,7 +47,7 @@ press <kbd>⌘</kbd>+<kbd>S</kbd> to save the file after it is opened. Using the
 
 ### iOS
 
-saveAs must be run within a user interaction event such as onTouchDown or onClick; setTimeout will prevent saveAs from functioning properly. Due to restrictions in iOS saveAs opens in a new window instead of downloading, if you want this fixed please tell Apple how this bug is affecting you: [https://bugs.webkit.org/show_bug.cgi?id=102914](https://bugs.webkit.org/show_bug.cgi?id=102914)
+saveAs must be run within a user interaction event such as onTouchDown or onClick; setTimeout will prevent saveAs from functioning properly. Due to restrictions in iOS saveAs opens in a new window instead of downloading, if you want this fixed please [tell Apple](https://bugs.webkit.org/show_bug.cgi?id=102914) how this bug is affecting you.
 
 Syntax
 ------
