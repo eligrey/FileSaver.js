@@ -12,7 +12,7 @@ sent to an external server.
 Looking for `canvas.toBlob()` for saving canvases? Check out
 [canvas-toBlob.js](https://github.com/eligrey/canvas-toBlob.js) for a cross-browser implementation.
 
-Supported Browsers
+Supported browsers
 ------------------
 
 | Browser        | Constructs as | Filenames    | Max Blob Size | Dependencies |
