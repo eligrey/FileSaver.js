@@ -38,7 +38,7 @@ try {
 ### IE < 10
 
 It is possible to save text files in IE < 10 without Flash-based polyfills.
-See [ChenWenBrian's `saveTextAs()`](https://github.com/koffsyrup/FileSaver.js#examples) for more details.
+See [ChenWenBrian and koffsyrup's `saveTextAs()`](https://github.com/koffsyrup/FileSaver.js#examples) for more details.
 
 ### Safari 6.1+
 
