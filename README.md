@@ -10,7 +10,7 @@ webapps that need to generate files, or for saving sensitive information that sh
 sent to an external server.
 
 Looking for `canvas.toBlob()` for saving canvases? Check out
-[canvas-toBlob.js](https://github.com/eligrey/canvas-toBlob.js) for a cross-browser implementation.
+[canvas-toBlob.js][2] for a cross-browser implementation.
 
 Supported browsers
 ------------------
@@ -19,10 +19,10 @@ Supported browsers
 | -------------- | ------------- | ------------ | ------------- | ------------ |
 | Firefox 20+    | Blob          | Yes          | 800 MiB       | None         |
 | Firefox < 20   | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
-| Chrome         | Blob          | Yes          | 345 MiB       | None         |
-| Chrome for Android | Blob      | Yes          | 345 MiB       | None         |
+| Chrome         | Blob          | Yes          | [500 MiB][3]  | None         |
+| Chrome for Android | Blob      | Yes          | [500 MiB][3]  | None         |
 | IE 10+         | Blob          | Yes          | 600 MiB       | None         |
-| Opera 15+      | Blob          | Yes          | 345 MiB       | None         |
+| Opera 15+      | Blob          | Yes          | 500 MiB       | None         |
 | Opera < 15     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
 | Safari 6.1+*   | Blob          | No           | ?             | None         |
 | Safari < 6     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
@@ -66,8 +66,8 @@ var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
 saveAs(blob, "hello world.txt");
 ```
 
-The standard W3C File API [`Blob`][3] interface is not available in all browsers.
-[Blob.js][4] is a cross-browser `Blob` implementation that solves this.
+The standard W3C File API [`Blob`][4] interface is not available in all browsers.
+[Blob.js][5] is a cross-browser `Blob` implementation that solves this.
 
 ### Saving a canvas
 
@@ -80,15 +80,17 @@ canvas.toBlob(function(blob) {
 ```
 
 Note: The standard HTML5 `canvas.toBlob()` method is not available in all browsers.
-[canvas-toBlob.js][5] is a cross-browser `canvas.toBlob()` that polyfills this.
+[canvas-toBlob.js][6] is a cross-browser `canvas.toBlob()` that polyfills this.
 
 
 ![Tracking image](https://in.getclicky.com/212712ns.gif)
 
   [1]: http://eligrey.com/demos/FileSaver.js/
-  [3]: https://developer.mozilla.org/en-US/docs/DOM/Blob
-  [4]: https://github.com/eligrey/Blob.js
-  [5]: https://github.com/eligrey/canvas-toBlob.js
+  [2]: https://github.com/eligrey/canvas-toBlob.js
+  [3]: https://code.google.com/p/chromium/codesearch#chromium/src/storage/browser/blob/blob_storage_context.cc&type=cs&sq=package:chromium&l=37&rcl=1418672972
+  [4]: https://developer.mozilla.org/en-US/docs/DOM/Blob
+  [5]: https://github.com/eligrey/Blob.js
+  [6]: https://github.com/eligrey/canvas-toBlob.js
 
 Contributing
 ------------
