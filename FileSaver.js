@@ -1,6 +1,6 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 2014-12-17
+ * 2015-01-04
  *
  * By Eli Grey, http://eligrey.com
  * License: X11/MIT
@@ -236,7 +236,7 @@ var saveAs = saveAs
 // with an attribute `content` that corresponds to the window
 
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = saveAs;
+  module.exports.saveAs = saveAs;
 } else if ((typeof define !== "undefined" && define !== null) && (define.amd != null)) {
   define([], function() {
     return saveAs;
