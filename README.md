@@ -87,7 +87,7 @@ Note: The standard HTML5 `canvas.toBlob()` method is not available in all browse
 
   [1]: http://eligrey.com/demos/FileSaver.js/
   [2]: https://github.com/eligrey/canvas-toBlob.js
-  [3]: https://code.google.com/p/chromium/codesearch#chromium/src/storage/browser/blob/blob_storage_context.cc&type=cs&sq=package:chromium&l=37&rcl=1418672972
+  [3]: https://code.google.com/p/chromium/issues/detail?id=375297
   [4]: https://developer.mozilla.org/en-US/docs/DOM/Blob
   [5]: https://github.com/eligrey/Blob.js
   [6]: https://github.com/eligrey/canvas-toBlob.js
