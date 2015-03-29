@@ -20,7 +20,7 @@ var saveAs = saveAs
   || (function(view) {
 	"use strict";
 	// IE <10 is explicitly unsupported
-	if (!window.clipboardData || !window.matchMedia) {
+	if (!!window.clipboardData && !window.matchMedia) {
 		return;
 	}
 	var
