@@ -19,7 +19,6 @@
     "bower_components",
     "test",
     "tests",
-    "demo",
-    "FileSaver.min.js"
+    "demo"
   ]
 }
