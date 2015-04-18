@@ -96,10 +96,8 @@ var saveAs = saveAs
 				, fs_error = function() {
 					// don't create more object URLs than needed
 					if (blob_changed || !object_url) {
-						// object_url = get_URL().createObjectURL(blob);
-
 						//I found this to help with saving on iOS devices. Of course it doesn't actually save
-						//because of apple restrictions, but the link opens. 
+						//because of apple restrictions, but the link opens. - Martavis P.
 						var reader = new FileReader();
                         reader.readAsDataURL(blob); 
                         reader.onloadend = function() {
@@ -115,15 +113,7 @@ var saveAs = saveAs
                             }
                         }
 					}
-					// if (target_view) {
-					// 	target_view.location.href = object_url;
-					// } else {
-					// 	var new_tab = view.open(object_url, "_blank");
-					// 	if (new_tab == undefined && typeof safari !== "undefined") {
-					// 		//Apple do not allow window.open, see http://bit.ly/1kZffRI
-					// 		view.location.href = object_url
-					// 	}
-					// }
+
 					filesaver.readyState = filesaver.DONE;
 					dispatch_all();
 					revoke(object_url);
