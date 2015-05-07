@@ -1,6 +1,6 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 2015-03-04
+ * 2015-05-07
  *
  * By Eli Grey, http://eligrey.com
  * License: X11/MIT
@@ -125,6 +125,10 @@ var saveAs = saveAs
 			if (!name) {
 				name = "download";
 			}
+			// prepend BOM for UTF-8 XML and text/plain types
+			if (/^\s*(?:text\/(?:plain|xml)|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(blob.type)) {
+				blob = new Blob(["\ufeff", blob], {type: blob.type});
+			}
 			if (can_use_save_link) {
 				object_url = get_URL().createObjectURL(blob);
 				save_link.href = object_url;
@@ -134,10 +138,6 @@ var saveAs = saveAs
 				dispatch_all();
 				revoke(object_url);
 				return;
-			}
-			// prepend BOM for UTF-8 XML and text/plain types
-			if (/^\s*(?:text\/(?:plain|xml)|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(blob.type)) {
-				blob = new Blob(["\ufeff", blob], {type: blob.type});
 			}
 			// Object and web filesystem URLs have a problem saving in Google Chrome when
 			// viewed in a tab, so I force save with application/octet-stream
