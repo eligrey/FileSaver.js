@@ -14,6 +14,12 @@
 
 var saveAs = saveAs || (function(view) {
 	"use strict";
+	
+	// If no view just quit, probably we are in node.js
+	if(typeof view === "undefined") {
+	  	return;
+	}
+	
 	// IE <10 is explicitly unsupported
 	if (typeof navigator !== "undefined" && /MSIE [1-9]\./.test(navigator.userAgent)) {
 		return;
