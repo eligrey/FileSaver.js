@@ -1,7 +1,7 @@
 FileSaver.js
 ============
 
-Added a failsafe for node.js environment so the solution would not break with errors when trying to require this package in the Node.JS enfironment.
+> Added a failsafe for node.js environment so the solution would not break with errors when trying to require this package in the Node.JS enfironment.
 
 FileSaver.js implements the HTML5 W3C `saveAs()` FileSaver interface in browsers that do
 not natively support it. There is a [FileSaver.js demo][1] that demonstrates saving
