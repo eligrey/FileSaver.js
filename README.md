@@ -102,3 +102,8 @@ uglifyjs FileSaver.js --comments /@source/ > FileSaver.min.js
 ```
 
 Please make sure you build a production version before submitting a pull request.
+
+Bower Installation
+------------------
+
+Please see the [this repo](http://github.com/Teleborder/FileSaver.js) for a bower-compatible fork of FileSaver.js, available under the package name `file-saver.js`.

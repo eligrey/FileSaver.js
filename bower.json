@@ -1,7 +1,7 @@
 {
   "name": "file-saver.js",
   "main": "FileSaver.js",
-  "version": "1.20150304.1",
+  "version": "1.20150507.2",
   "homepage": "https://github.com/Teleborder/FileSaver.js",
   "authors": [
     "Eli Grey (http://eligrey.com)"
