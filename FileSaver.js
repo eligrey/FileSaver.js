@@ -27,11 +27,7 @@ var saveAs = saveAs || (function(view) {
 		, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
 		, can_use_save_link = "download" in save_link
 		, click = function(node) {
-			var event = doc.createEvent("MouseEvents");
-			event.initMouseEvent(
-				"click", true, false, view, 0, 0, 0, 0, 0
-				, false, false, false, false, 0, null
-			);
+			var event = new MouseEvent("click");
 			node.dispatchEvent(event);
 		}
 		, webkit_req_fs = view.webkitRequestFileSystem
@@ -131,10 +127,12 @@ var saveAs = saveAs || (function(view) {
 				object_url = get_URL().createObjectURL(blob);
 				save_link.href = object_url;
 				save_link.download = name;
-				click(save_link);
-				filesaver.readyState = filesaver.DONE;
-				dispatch_all();
-				revoke(object_url);
+				setTimeout(function() {
+					click(save_link);
+					dispatch_all();
+					revoke(object_url);
+					filesaver.readyState = filesaver.DONE;
+				});
 				return;
 			}
 			// Object and web filesystem URLs have a problem saving in Google Chrome when
