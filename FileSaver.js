@@ -78,8 +78,10 @@ var saveAs = saveAs || (function(view) {
 			}
 			return blob;
 		}
-		, FileSaver = function(blob, name) {
-			blob = auto_bom(blob);
+		, FileSaver = function(blob, name, no_auto_bom) {
+			if (!no_auto_bom) {
+				blob = auto_bom(blob);
+			}
 			// First try a.download, then web filesystem, then object URLs
 			var
 				  filesaver = this
@@ -203,14 +205,17 @@ var saveAs = saveAs || (function(view) {
 			}), fs_error);
 		}
 		, FS_proto = FileSaver.prototype
-		, saveAs = function(blob, name) {
-			return new FileSaver(blob, name);
+		, saveAs = function(blob, name, no_auto_bom) {
+			return new FileSaver(blob, name, no_auto_bom);
 		}
 	;
 	// IE 10+ (native saveAs)
 	if (typeof navigator !== "undefined" && navigator.msSaveOrOpenBlob) {
-		return function(blob, name) {
-			return navigator.msSaveOrOpenBlob(auto_bom(blob), name);
+		return function(blob, name, no_auto_bom) {
+			if (!no_auto_bom) {
+				blob = auto_bom(blob);
+			}
+			return navigator.msSaveOrOpenBlob(blob, name || "download");
 		};
 	}
 
