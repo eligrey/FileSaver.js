@@ -53,8 +53,10 @@ Syntax
 ------
 
 ```js
-FileSaver saveAs(in Blob data, in DOMString filename)
+FileSaver saveAs(Blob data, DOMString filename, optional Boolean disableAutoBOM)
 ```
+
+Pass `true` for `disableAutoBOM` if you don't want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)).
 
 Examples
 --------
