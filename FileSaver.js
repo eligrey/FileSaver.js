@@ -30,6 +30,7 @@ var saveAs = saveAs || (function(view) {
 			var event = new MouseEvent("click");
 			node.dispatchEvent(event);
 		}
+		, is_safari = /Version\/[\d\.]+.*Safari/.test(navigator.userAgent)
 		, webkit_req_fs = view.webkitRequestFileSystem
 		, req_fs = view.requestFileSystem || webkit_req_fs || view.mozRequestFileSystem
 		, throw_outside = function(ex) {
@@ -94,13 +95,12 @@ var saveAs = saveAs || (function(view) {
 				}
 				// on any filesys errors revert to saving with object URLs
 				, fs_error = function() {
-					if (target_view && /Version\/[\d\.]+.*Safari/.test(navigator.userAgent) && typeof FileReader !== "undefined") {
+					if (target_view && is_safari && typeof FileReader !== "undefined") {
 						// Safari doesn't allow downloading of blob urls
 						var reader = new FileReader();
 						reader.onloadend = function() {
 							var base64Data = reader.result;
-							base64Data = base64Data.replace(/^data:.*?;/, 'data:attachment/file;');
-							target_view.location.href = base64Data;
+							target_view.location.href = "data:attachment/file" + base64Data.slice(base64Data.search(/[,;]/));
 							filesaver.readyState = filesaver.DONE;
 							dispatch_all();
 						};
@@ -116,7 +116,7 @@ var saveAs = saveAs || (function(view) {
 						target_view.location.href = object_url;
 					} else {
 						var new_tab = view.open(object_url, "_blank");
-						if (new_tab == undefined && typeof safari !== "undefined") {
+						if (new_tab == undefined && is_safari) {
 							//Apple do not allow window.open, see http://bit.ly/1kZffRI
 							view.location.href = object_url
 						}
