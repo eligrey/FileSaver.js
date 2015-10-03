@@ -94,6 +94,20 @@ var saveAs = saveAs || (function(view) {
 				}
 				// on any filesys errors revert to saving with object URLs
 				, fs_error = function() {
+					if (target_view && typeof safari !== "undefined" && typeof FileReader !== "undefined") {
+						// Safari doesn't allow downloading of blob urls
+						var reader = new FileReader();
+						reader.onloadend = function() {
+							var base64Data = reader.result;
+							base64Data = base64Data.replace(/^data:.*;/, 'data:attachment/file;');
+							target_view.location.href = encodeURI(base64Data);
+							filesaver.readyState = filesaver.DONE;
+							dispatch_all();
+						};
+						reader.readAsDataURL(blob);
+						filesaver.readyState = filesaver.INIT;
+						return;
+					}
 					// don't create more object URLs than needed
 					if (blob_changed || !object_url) {
 						object_url = get_URL().createObjectURL(blob);
