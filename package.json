@@ -1,0 +1,16 @@
+{
+  "name": "FileSaver.js",
+  "version": "0.0.1",
+  "description": "An HTML5 saveAs() FileSaver implementation",
+  "main": "FileSaver.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eligrey/FileSaver.js"
+  },
+  "author": "Eli Grey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eligrey/FileSaver.js/issues"
+  },
+  "homepage": "https://github.com/eligrey/FileSaver.js"
+}
