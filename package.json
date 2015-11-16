@@ -1,0 +1,15 @@
+{
+  "name": "filesaver",
+  "version": "1.1.20151003",
+  "description": "An HTML5 saveAs() FileSaver implementation",
+  "main": "FileSaver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eligrey/FileSaver.js/"
+  },
+  "author": "eligrey",
+  "license": "MIT"
+}
