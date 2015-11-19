@@ -141,9 +141,9 @@ var saveAs = saveAs || (function(view) {
 			}
 			if (can_use_save_link) {
 				object_url = get_URL().createObjectURL(blob);
-				save_link.href = object_url;
-				save_link.download = name;
 				setTimeout(function() {
+					save_link.href = object_url;
+					save_link.download = name;
 					click(save_link);
 					dispatch_all();
 					revoke(object_url);
