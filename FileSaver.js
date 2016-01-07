@@ -12,7 +12,7 @@
 
 /*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
 
-var saveAs = saveAs || (function(view) {
+window.saveAs = window.saveAs || (function(view) {
 	"use strict";
 	// IE <10 is explicitly unsupported
 	if (typeof navigator !== "undefined" && /MSIE [1-9]\./.test(navigator.userAgent)) {
