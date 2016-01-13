@@ -1,6 +1,6 @@
 {
   "name": "filesaver.js",
-  "version": "1.0.0",
+  "version": "1.0.20151003",
   "description": "FileSaver.js implements the HTML5 W3C saveAs() FileSaver interface in browsers that do not natively support it.",
   "main": "FileSaver.js",
   "scripts": {
