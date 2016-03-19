@@ -116,7 +116,7 @@ var saveAs = saveAs || (function(view) {
 						target_view.location.href = object_url;
 					} else {
 						var new_tab = view.open(object_url, "_blank");
-						if (new_tab == undefined && is_safari) {
+						if (new_tab === undefined && is_safari) {
 							//Apple do not allow window.open, see http://bit.ly/1kZffRI
 							view.location.href = object_url
 						}
@@ -263,7 +263,7 @@ var saveAs = saveAs || (function(view) {
 
 if (typeof module !== "undefined" && module.exports) {
   module.exports.saveAs = saveAs;
-} else if ((typeof define !== "undefined" && define !== null) && (define.amd != null)) {
+} else if ((typeof define !== "undefined" && define !== null) && (define.amd !== null)) {
   define([], function() {
     return saveAs;
   });
