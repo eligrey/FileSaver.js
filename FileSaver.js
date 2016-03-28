@@ -1,6 +1,6 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 1.1.20160319
+ * 1.1.20160328
  *
  * By Eli Grey, http://eligrey.com
  * License: MIT
@@ -40,10 +40,8 @@ var saveAs = saveAs || (function(view) {
 		}
 		, force_saveable_type = "application/octet-stream"
 		, fs_min_size = 0
-		// See https://code.google.com/p/chromium/issues/detail?id=375297#c7 and
-		// https://github.com/eligrey/FileSaver.js/commit/485930a#commitcomment-8768047
-		// for the reasoning behind the timeout and revocation flow
-		, arbitrary_revoke_timeout = 500 // in ms
+		// the Blob API is fundamentally broken as there is no "downloadfinished" event to subscribe to
+		, arbitrary_revoke_timeout = 1000 * 40 // in ms
 		, revoke = function(file) {
 			var revoker = function() {
 				if (typeof file === "string") { // file is an object URL
@@ -52,11 +50,23 @@ var saveAs = saveAs || (function(view) {
 					file.remove();
 				}
 			};
-			if (view.chrome) {
-				revoker();
-			} else {
-				setTimeout(revoker, arbitrary_revoke_timeout);
+			/* // Take note W3C:
+			var
+			  uri = typeof file === "string" ? file : file.toURL()
+			, revoker = function(evt) {
+				// idealy DownloadFinishedEvent.data would be the URL requested
+				if (evt.data === uri) {
+					if (typeof file === "string") { // file is an object URL
+						get_URL().revokeObjectURL(file);
+					} else { // file is a File
+						file.remove();
+					}
+				}
 			}
+			;
+			view.addEventListener("downloadfinished", revoker);
+			*/
+			setTimeout(revoker, arbitrary_revoke_timeout);
 		}
 		, dispatch = function(filesaver, event_types, event) {
 			event_types = [].concat(event_types);
