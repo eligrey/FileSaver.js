@@ -27,7 +27,9 @@ var saveAs = saveAs || (function(view) {
 		, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
 		, can_use_save_link = "download" in save_link
 		, click = function(node) {
-			var event = new MouseEvent("click");
+			// var event = new MouseEvent("click");
+			var event = document.createEvent("MouseEvent");
+			event.initEvent("click", false, false, null);
 			node.dispatchEvent(event);
 		}
 		, is_safari = /Version\/[\d\.]+.*Safari/.test(navigator.userAgent)
@@ -275,6 +277,6 @@ if (typeof module !== "undefined" && module.exports) {
   module.exports.saveAs = saveAs;
 } else if ((typeof define !== "undefined" && define !== null) && (define.amd !== null)) {
   define([], function() {
-    return saveAs;
+	return saveAs;
   });
 }
