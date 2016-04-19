@@ -23,6 +23,7 @@ Supported browsers
 | Firefox < 20   | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
 | Chrome         | Blob          | Yes          | [500 MiB][3]  | None         |
 | Chrome for Android | Blob      | Yes          | [500 MiB][3]  | None         |
+| Edge           | Blob          | Yes          | ?             | None         |
 | IE 10+         | Blob          | Yes          | 600 MiB       | None         |
 | Opera 15+      | Blob          | Yes          | 500 MiB       | None         |
 | Opera < 15     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
@@ -55,8 +56,10 @@ Syntax
 ------
 
 ```js
-FileSaver saveAs(in Blob data, in DOMString filename)
+FileSaver saveAs(Blob data, DOMString filename, optional Boolean disableAutoBOM)
 ```
+
+Pass `true` for `disableAutoBOM` if you don't want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)).
 
 Examples
 --------
@@ -100,7 +103,7 @@ Contributing
 The `FileSaver.js` distribution file is compiled with Uglify.js like so:
 
 ```bash
-uglifyjs FileSaver.js --comments /@source/ > FileSaver.min.js
+uglifyjs FileSaver.js --mangle --comments /@source/ > FileSaver.min.js
 ```
 
 Please make sure you build a production version before submitting a pull request.
