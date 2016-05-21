@@ -1,6 +1,6 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 1.1.20160328
+ * 1.1.20160520
  *
  * By Eli Grey, http://eligrey.com
  * License: MIT
@@ -85,7 +85,7 @@ var saveAs = saveAs || (function(view) {
 		, auto_bom = function(blob) {
 			// prepend BOM for UTF-8 XML and text/* types (including HTML)
 			if (/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(blob.type)) {
-				return new Blob(["\ufeff", blob], {type: blob.type});
+				return new Blob(["\xEF\xBB\xBF", blob], {type: blob.type});
 			}
 			return blob;
 		}
