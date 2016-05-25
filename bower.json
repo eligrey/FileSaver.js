@@ -1,0 +1,13 @@
+{
+	"name": "file-saver",
+	"homepage": "https://github.com/eligrey/FileSaver.js",
+	"main": "FileSaver.js",
+	"_release": "ec5c3cca11",
+	"_resolution": {
+		"type": "commit",
+		"commit": "ec5c3cca11"
+	},
+	"_source": "git://github.com/eligrey/FileSaver.js.git",
+	"_target": "ec5c3cca11",
+	"_originalSource": "file-saver"
+}
