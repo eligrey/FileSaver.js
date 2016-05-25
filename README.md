@@ -1,7 +1,7 @@
 FileSaver.js
 ============
 
-FileSaver.js implements the HTML5 W3C `saveAs()` FileSaver interface in browsers that do
+FileSaver.js implements the `saveAs()` FileSaver interface in browsers that do
 not natively support it. There is a [FileSaver.js demo][1] that demonstrates saving
 various media types.
 
