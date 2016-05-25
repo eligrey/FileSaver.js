@@ -4,7 +4,8 @@
   "description": "An HTML5 saveAs() FileSaver implementation",
   "main": "FileSaver.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "node_modules/.bin/uglifyjs FileSaver.js --mangle --comments /@source/ > FileSaver.min.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/eligrey/FileSaver.js/issues"
   },
-  "homepage": "https://github.com/eligrey/FileSaver.js#readme"
+  "homepage": "https://github.com/eligrey/FileSaver.js#readme",
+  "devDependencies": {
+    "uglify-js": "^2.6.2"
+  }
 }
