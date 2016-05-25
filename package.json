@@ -1,0 +1,28 @@
+{
+  "name": "filesaverjs",
+  "version": "0.2.2",
+  "description": "An HTML5 saveAs() FileSaver implementation",
+  "main": "FileSaver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Keepsite/FileSaver.js.git"
+  },
+  "keywords": [
+    "filesaver",
+    "filesaverjs",
+    "html5",
+    "saveas",
+    "blob",
+    "download",
+    "downloadjs"
+  ],
+  "author": "Eli Grey",
+  "license": "(MIT OR X11)",
+  "bugs": {
+    "url": "https://github.com/eligrey/FileSaver.js/issues"
+  },
+  "homepage": "https://github.com/Keepsite/FileSaver.js"
+}
