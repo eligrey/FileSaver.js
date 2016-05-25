@@ -1,0 +1,25 @@
+{
+  "name": "file-saver.js",
+  "main": "FileSaver.js",
+  "version": "1.20150507.2",
+  "homepage": "https://github.com/Teleborder/FileSaver.js",
+  "authors": [
+    "Eli Grey (http://eligrey.com)"
+  ],
+  "description": "A saveAs() FileSaver implementation",
+  "keywords": [
+    "File",
+    "FileSaver",
+    "saveAs"
+  ],
+  "license": "LICENSE.md",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "demo",
+    "FileSaver.min.js"
+  ]
+}
