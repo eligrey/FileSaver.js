@@ -102,11 +102,16 @@ The `FileSaver.js` distribution file is compiled with Uglify.js like so:
 
 ```bash
 uglifyjs FileSaver.js --mangle --comments /@source/ > FileSaver.min.js
+# or simply:
+npm run build
 ```
 
 Please make sure you build a production version before submitting a pull request.
 
-Bower Installation
+Installation
 ------------------
 
-Please see the [this repo](http://github.com/Teleborder/FileSaver.js) for a bower-compatible fork of FileSaver.js, available under the package name `file-saver.js`.
+```bash
+npm install file-saver --save
+bower install file-saver
+```
