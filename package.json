@@ -1,6 +1,6 @@
 {
   "name": "file-saver",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "An HTML5 saveAs() FileSaver implementation",
   "main": "FileSaver.js",
   "scripts": {

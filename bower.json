@@ -1,7 +1,7 @@
 {
   "name": "file-saver",
   "main": "FileSaver.js",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "homepage": "https://github.com/eligrey/FileSaver.js",
   "authors": [
     "Eli Grey <me@eligrey.com>"
