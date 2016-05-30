@@ -15,7 +15,7 @@
   "license": "MIT",
   "ignore": [
       "*",
-      "!FileSaver.js",
+      "!FileSaver.*js",
       "!LICENSE.md"
   ]
 }
