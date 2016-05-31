@@ -89,13 +89,14 @@ File itself already contains a name, There is a hand full of ways to get a file
 instance (from storage, file input, new constructor)
 But if you still want to change the name, then you can change it in the 2nd argument
 
+Note: The standard HTML5 `canvas.toBlob()` method is not available in all browsers.
+[canvas-toBlob.js][6] is a cross-browser `canvas.toBlob()` that polyfills this.
+
 ```js
 var file = new File(["Hello, world!"], "hello world.txt", {type: "text/plain;charset=utf-8"});
 saveAs(file);
 ```
 
-Note: The standard HTML5 `canvas.toBlob()` method is not available in all browsers.
-[canvas-toBlob.js][6] is a cross-browser `canvas.toBlob()` that polyfills this.
 
 
 ![Tracking image](https://in.getclicky.com/212712ns.gif)
