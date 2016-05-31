@@ -54,7 +54,7 @@ Syntax
 ------
 
 ```js
-FileSaver saveAs(Blob data, DOMString filename, optional Boolean disableAutoBOM)
+FileSaver saveAs(Blob/File data, optional DOMString filename, optional Boolean disableAutoBOM)
 ```
 
 Pass `true` for `disableAutoBOM` if you don't want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)).
@@ -80,6 +80,18 @@ var canvas = document.getElementById("my-canvas"), ctx = canvas.getContext("2d")
 canvas.toBlob(function(blob) {
     saveAs(blob, "pretty image.png");
 });
+```
+
+### Saving File
+
+You can save a File constructor without specifying a filename. The
+File itself already contains a name, There is a hand full of ways to get a file
+instance (from storage, file input, new constructor)
+But if you still want to change the name, then you can change it in the 2nd argument
+
+```js
+var file = new File(["Hello, world!"], "hello world.txt", {type: "text/plain;charset=utf-8"});
+saveAs(file);
 ```
 
 Note: The standard HTML5 `canvas.toBlob()` method is not available in all browsers.

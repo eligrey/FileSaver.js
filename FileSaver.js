@@ -1,6 +1,6 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 1.2.2
+ * 1.3.0
  *
  * By Eli Grey, http://eligrey.com
  * License: MIT
