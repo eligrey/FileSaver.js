@@ -1,3 +1,8 @@
+If you need to save really large files bigger then the blob's size limitation or don't have 
+enough RAM, then have a look at the more advance [StreamSaver.js](https://github.com/jimmywarting/StreamSaver.js)
+that can save data directly to the hard drive asynchronous with the power of the new streams API. That will have
+support for progress, cancelation and knowing when it's done writing
+
 FileSaver.js
 ============
 
