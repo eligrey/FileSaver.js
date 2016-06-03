@@ -195,7 +195,7 @@ html_options_form.addEventListener("submit", function(event) {
 	saveAs(
 		  new BB(
 			  [xml_serializer.serializeToString(doc)]
-			, {type: "application/xhtml+xml;charset=" + document.characterSet}
+			, {type: "text/plain;charset=" + document.characterSet}
 		)
 		, (html_filename.value || html_filename.placeholder) + ".xhtml"
 	);
