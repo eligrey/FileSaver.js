@@ -31,6 +31,7 @@ var saveAs = saveAs || (function(view) {
 			node.dispatchEvent(event);
 		}
 		, is_safari = /constructor/i.test(view.HTMLElement)
+		, is_chrome_ios =/CriOS\/[\d]+/.test(navigator.userAgent)
 		, throw_outside = function(ex) {
 			(view.setImmediate || view.setTimeout)(function() {
 				throw ex;
@@ -86,12 +87,14 @@ var saveAs = saveAs || (function(view) {
 				}
 				// on any filesys errors revert to saving with object URLs
 				, fs_error = function() {
-					if (force && is_safari && view.FileReader) {
+					if ((is_chrome_ios || (force && is_safari)) && view.FileReader) {
 						// Safari doesn't allow downloading of blob urls
 						var reader = new FileReader();
 						reader.onloadend = function() {
-							var base64Data = reader.result;
-							view.location.href = "data:attachment/file" + base64Data.slice(base64Data.search(/[,;]/));
+							var url = is_chrome_ios ? reader.result : reader.result.replace(/^data:[^;]*;/, 'data:attachment/file;');
+							var popup = view.open(url, '_blank');
+							if(!popup) view.location.href = url;
+							url=undefined; // release reference before dispatching
 							filesaver.readyState = filesaver.DONE;
 							dispatch_all();
 						};
