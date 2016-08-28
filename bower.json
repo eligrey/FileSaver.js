@@ -1,0 +1,21 @@
+{
+  "name": "file-saver",
+  "main": "FileSaver.js",
+  "version": "1.3.2",
+  "homepage": "https://github.com/eligrey/FileSaver.js",
+  "authors": [
+    "Eli Grey <me@eligrey.com>"
+  ],
+  "description": "An HTML5 saveAs() FileSaver implementation",
+  "keywords": [
+    "filesaver",
+    "saveas",
+    "blob"
+  ],
+  "license": "MIT",
+  "ignore": [
+      "*",
+      "!FileSaver.*js",
+      "!LICENSE.md"
+  ]
+}

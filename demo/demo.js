@@ -1,8 +1,8 @@
 /*! FileSaver.js demo script
- *  2012-01-23
+ *  2016-05-26
  *
  *  By Eli Grey, http://eligrey.com
- *  License: X11/MIT
+ *  License: MIT
  *    See LICENSE.md
  */
 
@@ -165,7 +165,7 @@ canvas.addEventListener("mouseout", stop_drawing, false);
 
 canvas_options_form.addEventListener("submit", function(event) {
 	event.preventDefault();
-	canvas.toBlob(function(blob) {
+	canvas.toBlobHD(function(blob) {
 		saveAs(
 			  blob
 			, (canvas_filename.value || canvas_filename.placeholder) + ".png"
@@ -195,7 +195,7 @@ html_options_form.addEventListener("submit", function(event) {
 	saveAs(
 		  new BB(
 			  [xml_serializer.serializeToString(doc)]
-			, {type: "application/xhtml+xml;charset=" + document.characterSet}
+			, {type: "text/plain;charset=" + document.characterSet}
 		)
 		, (html_filename.value || html_filename.placeholder) + ".xhtml"
 	);

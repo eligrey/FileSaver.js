@@ -1,7 +1,12 @@
+If you need to save really large files bigger then the blob's size limitation or don't have 
+enough RAM, then have a look at the more advanced [StreamSaver.js](https://github.com/jimmywarting/StreamSaver.js)
+that can save data directly to the hard drive asynchronously with the power of the new streams API. That will have
+support for progress, cancelation and knowing when it's done writing
+
 FileSaver.js
 ============
 
-FileSaver.js implements the HTML5 W3C `saveAs()` FileSaver interface in browsers that do
+FileSaver.js implements the `saveAs()` FileSaver interface in browsers that do
 not natively support it. There is a [FileSaver.js demo][1] that demonstrates saving
 various media types.
 
@@ -21,6 +26,7 @@ Supported browsers
 | Firefox < 20   | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
 | Chrome         | Blob          | Yes          | [500 MiB][3]  | None         |
 | Chrome for Android | Blob      | Yes          | [500 MiB][3]  | None         |
+| Edge           | Blob          | Yes          | ?             | None         |
 | IE 10+         | Blob          | Yes          | 600 MiB       | None         |
 | Opera 15+      | Blob          | Yes          | 500 MiB       | None         |
 | Opera < 15     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
@@ -53,8 +59,10 @@ Syntax
 ------
 
 ```js
-FileSaver saveAs(in Blob data, in DOMString filename)
+FileSaver saveAs(Blob/File data, optional DOMString filename, optional Boolean disableAutoBOM)
 ```
+
+Pass `true` for `disableAutoBOM` if you don't want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)).
 
 Examples
 --------
@@ -82,6 +90,19 @@ canvas.toBlob(function(blob) {
 Note: The standard HTML5 `canvas.toBlob()` method is not available in all browsers.
 [canvas-toBlob.js][6] is a cross-browser `canvas.toBlob()` that polyfills this.
 
+### Saving File
+
+You can save a File constructor without specifying a filename. The
+File itself already contains a name, There is a hand full of ways to get a file
+instance (from storage, file input, new constructor)
+But if you still want to change the name, then you can change it in the 2nd argument
+
+```js
+var file = new File(["Hello, world!"], "hello world.txt", {type: "text/plain;charset=utf-8"});
+saveAs(file);
+```
+
+
 
 ![Tracking image](https://in.getclicky.com/212712ns.gif)
 
@@ -98,12 +119,17 @@ Contributing
 The `FileSaver.js` distribution file is compiled with Uglify.js like so:
 
 ```bash
-uglifyjs FileSaver.js --comments /@source/ > FileSaver.min.js
+uglifyjs FileSaver.js --mangle --comments /@source/ > FileSaver.min.js
+# or simply:
+npm run build
 ```
 
 Please make sure you build a production version before submitting a pull request.
 
-Bower Installation
+Installation
 ------------------
 
-Please see the [this repo](http://github.com/Teleborder/FileSaver.js) for a bower-compatible fork of FileSaver.js, available under the package name `file-saver.js`.
+```bash
+npm install file-saver --save
+bower install file-saver
+```
