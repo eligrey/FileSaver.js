@@ -124,7 +124,12 @@ var saveAs = saveAs || (function(view) {
 			filesaver.readyState = filesaver.INIT;
 
 			if (can_use_save_link) {
-				object_url = get_URL().createObjectURL(blob);
+				if (blob instanceof Blob) {
+					object_url = get_URL().createObjectURL(blob);
+				} else {
+					object_url = blob;
+				}
+				
 				setTimeout(function() {
 					save_link.href = object_url;
 					save_link.download = name;
@@ -146,12 +151,16 @@ var saveAs = saveAs || (function(view) {
 	// IE 10+ (native saveAs)
 	if (typeof navigator !== "undefined" && navigator.msSaveOrOpenBlob) {
 		return function(blob, name, no_auto_bom) {
-			name = name || blob.name || "download";
-
 			if (!no_auto_bom) {
 				blob = auto_bom(blob);
 			}
-			return navigator.msSaveOrOpenBlob(blob, name);
+			
+			if (blob instanceof Blob) {
+				name = name || blob.name || "download";
+				return navigator.msSaveOrOpenBlob(blob, name);
+			} else {
+				return new FileSaver(blob, name || blob.name || "download", no_auto_bom);
+			}
 		};
 	}
 
