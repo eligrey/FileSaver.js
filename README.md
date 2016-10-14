@@ -67,6 +67,13 @@ Pass `true` for `disableAutoBOM` if you don't want FileSaver.js to automatically
 Examples
 --------
 
+### Saving text using with require
+```js
+var FileSaver = require('file-saver');
+var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
+FileSaver.saveAs(blob, "hello world.txt");
+```
+
 ### Saving text
 
 ```js
