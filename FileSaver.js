@@ -33,6 +33,7 @@ var saveAs = saveAs || (function(view) {
 		}
 		, is_safari = /constructor/i.test(view.HTMLElement) || view.safari
 		, is_chrome_ios =/CriOS\/[\d]+/.test(navigator.userAgent)
+		, is_windows_phone_10 = /(Windows Phone 10.0;.*Edge)/.test(navigator.userAgent)
 		, throw_outside = function(ex) {
 			(view.setImmediate || view.setTimeout)(function() {
 				throw ex;
@@ -144,7 +145,8 @@ var saveAs = saveAs || (function(view) {
 		}
 	;
 	// IE 10+ (native saveAs)
-	if (typeof navigator !== "undefined" && navigator.msSaveOrOpenBlob) {
+	//Windows phone 10 has a known bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/8153943/
+	if (typeof navigator !== "undefined" && navigator.msSaveOrOpenBlob && !is_windows_phone_10) {
 		return function(blob, name, no_auto_bom) {
 			name = name || blob.name || "download";
 
