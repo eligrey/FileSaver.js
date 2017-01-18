@@ -12,7 +12,7 @@ const getView = () => {
       || (typeof window.navigator !== 'undefined'
           && /MSIE [1-9]\./.test(window.navigator.userAgent))
      ) {
-    return undefined;
+    throw new Error('File can not be saved. No suitable view was found.');
   }
   return view;
 };
@@ -27,23 +27,34 @@ const autoBom = (view, blob) => {
   return blob;
 };
 
+const objectUrl = (view, blob) => {
+  const url = view.URL || view.webkitURL || view;
+  let oUrl;
+  return {
+    create() {
+      oUrl = url.createObjectURL(blob);
+    },
+    destroy() {
+      if (oUrl) setTimeout(() => url.revokeObjectURL(oUrl), 1000 * 40);
+    },
+  };
+};
+
 export default (blob, name, noAutoBom) => {
   const view = getView();
-  if (!view) throw new Error('File can not be saved. No suitable view was found.');
-  const url = view.URL || view.webkitURL || view;
   const saveData = {
     view,
     name: name || blob.name || 'download',
     blob: noAutoBom ? blob : autoBom(view, blob),
   };
-  saveData.objectUrl = url.createObjectURL(saveData.blob);
+  saveData.objectUrl = objectUrl(view, saveData.blob);
   saveData.isOctetStream = saveData.blob.type === 'application/octet-stream';
 
   return [ieSave, aDownload, fileReader, openAsUrl].reduce(
-    (acc, method) => acc.then(success => success || method(saveData)),
+    (acc, method) => acc.then(status => status || method(saveData)),
     Promise.resolve(false)
   ).then(
-    () => setTimeout(() => url.revokeObjectURL(saveData.objectUrl), 1000 * 40)
+    () => objectUrl.destroy()
   );
 };
 

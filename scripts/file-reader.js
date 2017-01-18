@@ -1,5 +1,5 @@
 /* global FileReader */
-export default ({ view, blob, isOctetStream }) => {
+export default ({ view, blob, isOctetStream }) => new Promise(resolve => {
   const isSafari = /constructor/i.test(view.HTMLElement) || view.safari;
   const isChromeIos = /CriOS\/[\d]+/.test(view.navigator.userAgent);
 
@@ -12,9 +12,10 @@ export default ({ view, blob, isOctetStream }) => {
       const popup = view.open(url, '_blank');
       if (!popup) view.location.assign(url);
       url = undefined; // release reference
+      resolve(true);
     };
     reader.readAsDataURL(blob);
-    return Promise.resolve(true);
+  } else {
+    resolve(false);
   }
-  return Promise.resolve(false);
-};
+});
