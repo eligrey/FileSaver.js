@@ -88,7 +88,7 @@ var saveAs = saveAs || (function(view) {
 				}
 				// on any filesys errors revert to saving with object URLs
 				, fs_error = function() {
-					if ((is_chrome_ios || (force && is_safari)) && view.FileReader) {
+					if ((is_chrome_ios || is_safari) && view.FileReader) {
 						// Safari doesn't allow downloading of blob urls
 						var reader = new FileReader();
 						reader.onloadend = function() {
