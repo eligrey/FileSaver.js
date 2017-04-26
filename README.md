@@ -78,7 +78,7 @@ FileSaver.saveAs(blob, "hello world.txt");
 
 ```js
 var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
-saveAs(blob, "hello world.txt");
+FileSaver.saveAs(blob, "hello world.txt");
 ```
 
 The standard W3C File API [`Blob`][4] interface is not available in all browsers.
@@ -90,7 +90,7 @@ The standard W3C File API [`Blob`][4] interface is not available in all browsers
 var canvas = document.getElementById("my-canvas"), ctx = canvas.getContext("2d");
 // draw to canvas...
 canvas.toBlob(function(blob) {
-    saveAs(blob, "pretty image.png");
+    FileSaver.saveAs(blob, "pretty image.png");
 });
 ```
 
@@ -106,7 +106,7 @@ But if you still want to change the name, then you can change it in the 2nd argu
 
 ```js
 var file = new File(["Hello, world!"], "hello world.txt", {type: "text/plain;charset=utf-8"});
-saveAs(file);
+FileSaver.saveAs(file);
 ```
 
 
