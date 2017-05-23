@@ -31,7 +31,7 @@ var saveAs = saveAs || (function(view) {
 			var event = new MouseEvent("click");
 			node.dispatchEvent(event);
 		}
-		, is_safari = /constructor/i.test(view.HTMLElement) || view.safari
+		, is_safari = /constructor/i.test(view.HTMLElement) || view.safari || /Safari/i.test(window.navigator.userAgent)
 		, is_chrome_ios =/CriOS\/[\d]+/.test(navigator.userAgent)
 		, throw_outside = function(ex) {
 			(view.setImmediate || view.setTimeout)(function() {
