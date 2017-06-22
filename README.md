@@ -32,6 +32,7 @@ Supported browsers
 | Opera < 15     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
 | Safari 6.1+*   | Blob          | No           | ?             | None         |
 | Safari < 6     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Safari 10.1+   | Blob          | Yes          | n/a           | None         |
 
 Feature detection is possible:
 
