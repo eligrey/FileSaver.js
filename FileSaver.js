@@ -173,7 +173,7 @@ var saveAs = saveAs || (function(view) {
 }(
 	   typeof self !== "undefined" && self
 	|| typeof window !== "undefined" && window
-	|| typeof global !== "undefined && global 
+	|| typeof global !== "undefined" && global 
 	|| Function('return this.content')() 
 	|| Function('return this')()
 ));
