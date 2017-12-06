@@ -186,3 +186,6 @@ if (typeof module !== "undefined" && module.exports) {
     return saveAs;
   });
 }
+(function(w){
+	w.saveAs = saveAs;
+})(window);
