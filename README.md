@@ -142,7 +142,7 @@ npm install file-saver --save
 bower install file-saver
 ```
 
-Additionally, typscript definitions can be installed via:
+Additionally, TypeScript definitions can be installed via:
 
 ```bash
 npm install @types/file-saver --save-dev
