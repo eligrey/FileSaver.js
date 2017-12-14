@@ -179,10 +179,10 @@ var saveAs = saveAs || (function(view) {
 // while `this` is nsIContentFrameMessageManager
 // with an attribute `content` that corresponds to the window
 
-if (typeof module !== "undefined" && module.exports) {
-  module.exports.saveAs = saveAs;
-} else if ((typeof define !== "undefined" && define !== null) && (define.amd !== null)) {
-  define("FileSaver.js", function() {
-    return saveAs;
-  });
+if (typeof define === 'function' && define.amd) {
+	define(function () {
+		return saveAs
+	})
+} else if (typeof module !== 'undefined' && module.exports) {
+	module.exports = saveAs
 }
