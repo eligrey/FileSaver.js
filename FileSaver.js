@@ -31,8 +31,11 @@ var saveAs = saveAs || (function(view) {
 			var event = new MouseEvent("click");
 			node.dispatchEvent(event);
 		}
-		, is_safari = /constructor/i.test(view.HTMLElement) || view.safari
 		, is_chrome_ios =/CriOS\/[\d]+/.test(navigator.userAgent)
+		, is_safari = !is_chrome_ios &&
+				/constructor/i.test(view.HTMLElement) ||
+				view.safari ||
+				/^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 		, throw_outside = function(ex) {
 			(view.setImmediate || view.setTimeout)(function() {
 				throw ex;
