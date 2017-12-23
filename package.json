@@ -4,6 +4,9 @@
   "description": "An HTML5 saveAs() FileSaver implementation",
   "main": "es/FileSaver.js",
   "module": "src/FileSaver.js",
+  "files": [
+    "src/FileSaver.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "build": "NODE_ENV=production babel src --out-dir=es"
