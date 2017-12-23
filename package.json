@@ -5,7 +5,7 @@
   "main": "FileSaver.js",
   "module": "src/FileSaver.js",
   "files": [
-    "es/FileSaver.min.js",
+    "FileSaver.min.js",
     "src/FileSaver.js"
   ],
   "scripts": {
