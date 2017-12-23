@@ -5,11 +5,14 @@
   "main": "es/FileSaver.js",
   "module": "src/FileSaver.js",
   "files": [
+    "es/FileSaver.min.js",
     "src/FileSaver.js"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "build": "NODE_ENV=production babel src --out-dir=es",
+    "build:development": "babel src/FileSaver.js --out-file=es/FileSaver.js",
+    "build:production": "NODE_ENV=production npm run build:development -- --out-file=es/FileSaver.min.js",
+    "build": "npm run build:development && npm run build:production",
     "prepublish": "npm run build"
   },
   "repository": {
