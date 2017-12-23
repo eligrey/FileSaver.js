@@ -9,7 +9,8 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "build": "NODE_ENV=production babel src --out-dir=es"
+    "build": "NODE_ENV=production babel src --out-dir=es",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
