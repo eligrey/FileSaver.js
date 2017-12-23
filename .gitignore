@@ -1,4 +1,7 @@
-es/
 node_modules/
 .DS_Store
 .idea/
+
+# Generated files
+/FileSaver.js
+/FileSaver.min.js
