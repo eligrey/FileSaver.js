@@ -25,8 +25,7 @@ var saveAs = saveAs || (function(view) {
 		, get_URL = function() {
 			return view.URL || view.webkitURL || view;
 		}
-		, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
-		, can_use_save_link = "download" in save_link
+		, save_link
 		, click = function(node) {
 			var event = new MouseEvent("click");
 			node.dispatchEvent(event);
@@ -123,7 +122,7 @@ var saveAs = saveAs || (function(view) {
 			;
 			filesaver.readyState = filesaver.INIT;
 
-			if (can_use_save_link) {
+			if ("download" in save_link) {
 				object_url = get_URL().createObjectURL(blob);
 				setTimeout(function() {
 					save_link.href = object_url;
@@ -132,6 +131,7 @@ var saveAs = saveAs || (function(view) {
 					dispatch_all();
 					revoke(object_url);
 					filesaver.readyState = filesaver.DONE;
+					save_link = null;
 				});
 				return;
 			}
@@ -140,6 +140,7 @@ var saveAs = saveAs || (function(view) {
 		}
 		, FS_proto = FileSaver.prototype
 		, saveAs = function(blob, name, no_auto_bom) {
+			save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a");
 			return new FileSaver(blob, name || blob.name || "download", no_auto_bom);
 		}
 	;
