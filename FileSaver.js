@@ -174,8 +174,8 @@ var saveAs = saveAs || (function(view) {
 	   typeof self !== "undefined" && self
 	|| typeof window !== "undefined" && window
 	|| typeof global !== "undefined" && global 
-	|| Function('return this.content')() 
-	|| Function('return this')()
+	|| this.content
+	|| this
 ));
 // `self` is undefined in Firefox for Android content script context
 // while `this` is nsIContentFrameMessageManager
