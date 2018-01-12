@@ -173,18 +173,13 @@ var saveAs = saveAs || (function(view) {
 }(
 	   typeof self !== "undefined" && self
 	|| typeof window !== "undefined" && window
-	|| typeof global !== "undefined" && global 
-	|| this.content
 	|| this
 ));
-// `self` is undefined in Firefox for Android content script context
-// while `this` is nsIContentFrameMessageManager
-// with an attribute `content` that corresponds to the window
 
 if (typeof module !== "undefined" && module.exports) {
-  module.exports.saveAs = saveAs;
+	module.exports.saveAs = saveAs;
 } else if ((typeof define !== "undefined" && define !== null) && (define.amd !== null)) {
-  define("FileSaver.js", function() {
-    return saveAs;
-  });
+	define("FileSaver.js", function() {
+		return saveAs;
+	});
 }
