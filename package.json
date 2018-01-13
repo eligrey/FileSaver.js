@@ -13,7 +13,7 @@
     "build:development": "babel src/FileSaver.js --out-file=FileSaver.js",
     "build:production": "NODE_ENV=production npm run build:development -- --out-file=FileSaver.min.js",
     "build": "npm run build:development && npm run build:production",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
