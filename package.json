@@ -2,16 +2,15 @@
   "name": "file-saver",
   "version": "1.3.4",
   "description": "An HTML5 saveAs() FileSaver implementation",
-  "main": "FileSaver.js",
+  "main": "dist/FileSaver.js",
   "module": "src/FileSaver.js",
   "files": [
-    "FileSaver.min.js",
-    "src/FileSaver.js"
+    "dist/FileSaver.min.js",
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "build:development": "babel src/FileSaver.js --out-file=FileSaver.js",
-    "build:production": "NODE_ENV=production npm run build:development -- --out-file=FileSaver.min.js",
+    "build:development": "mkdir -p dist && babel src/FileSaver.js --out-file=dist/FileSaver.js",
+    "build:production": "NODE_ENV=production npm run build:development -- --out-file=dist/FileSaver.min.js",
     "build": "npm run build:development && npm run build:production",
     "prepublishOnly": "npm run build"
   },
