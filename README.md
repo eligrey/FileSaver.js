@@ -79,7 +79,7 @@ FileSaver.saveAs(blob, "hello world.txt");
 
 ```js
 var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
-saveAs(blob, "hello world.txt");
+FileSaver.saveAs(blob, "hello world.txt");
 ```
 
 The standard W3C File API [`Blob`][4] interface is not available in all browsers.
@@ -107,7 +107,7 @@ But if you still want to change the name, then you can change it in the 2nd argu
 
 ```js
 var file = new File(["Hello, world!"], "hello world.txt", {type: "text/plain;charset=utf-8"});
-saveAs(file);
+FileSaver.saveAs(file);
 ```
 
 
@@ -120,19 +120,6 @@ saveAs(file);
   [4]: https://developer.mozilla.org/en-US/docs/DOM/Blob
   [5]: https://github.com/eligrey/Blob.js
   [6]: https://github.com/eligrey/canvas-toBlob.js
-
-Contributing
-------------
-
-The `FileSaver.js` distribution file is compiled with Uglify.js like so:
-
-```bash
-uglifyjs FileSaver.js --mangle --comments /@source/ > FileSaver.min.js
-# or simply:
-npm run build
-```
-
-Please make sure you build a production version before submitting a pull request.
 
 Installation
 ------------------
