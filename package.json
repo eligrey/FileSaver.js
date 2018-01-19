@@ -4,7 +4,6 @@
   "description": "An HTML5 saveAs() FileSaver implementation",
   "main": "FileSaver.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
     "build": "node_modules/.bin/uglifyjs FileSaver.js --mangle --comments /@source/ > FileSaver.min.js"
   },
   "repository": {
