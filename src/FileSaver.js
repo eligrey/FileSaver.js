@@ -13,7 +13,7 @@
 
 /*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
 
-var saveAs = saveAs || (function(view) {
+export var saveAs = saveAs || (function(view) {
 	"use strict";
 	// IE <10 is explicitly unsupported
 	if (typeof view === "undefined" || typeof navigator !== "undefined" && /MSIE [1-9]\./.test(navigator.userAgent)) {
@@ -175,11 +175,3 @@ var saveAs = saveAs || (function(view) {
 	|| typeof window !== "undefined" && window
 	|| this
 ));
-
-if (typeof module !== "undefined" && module.exports) {
-	module.exports.saveAs = saveAs;
-} else if ((typeof define !== "undefined" && define !== null) && (define.amd !== null)) {
-	define("FileSaver.js", function() {
-		return saveAs;
-	});
-}

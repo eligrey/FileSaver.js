@@ -1,0 +1,19 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": [
+          "ie > 9"
+        ]
+      }
+    }]
+  ],
+  "plugins": [
+    "transform-es2015-modules-umd"
+  ],
+  "env": {
+    "production": {
+      "presets": ["minify"]
+    }
+  }
+}
