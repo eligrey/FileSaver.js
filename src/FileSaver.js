@@ -1,9 +1,9 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 1.3.4
- * 2018-01-12 13:14:0
+ * 1.3.5
+ * 2018-01-22 15:49:54
  *
- * By Eli Grey, http://eligrey.com
+ * By Eli Grey, https://eligrey.com
  * License: MIT
  *   See https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md
  */
@@ -13,7 +13,7 @@
 
 /*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
 
-export var saveAs = saveAs || (function(view) {
+export default var saveAs = saveAs || (function(view) {
 	"use strict";
 	// IE <10 is explicitly unsupported
 	if (typeof view === "undefined" || typeof navigator !== "undefined" && /MSIE [1-9]\./.test(navigator.userAgent)) {
