@@ -134,3 +134,26 @@ Additionally, TypeScript definitions can be installed via:
 ```bash
 npm install @types/file-saver --save-dev
 ```
+
+Import/Require as module (webpack/browserify)
+------------------
+
+Examples:
+
+```
+import {saveAs} from 'file-saver'
+```
+
+```
+const {saveAs} = require('file-saver')
+```
+
+```
+import FileSaver from 'file-saver'
+
+FileSaver.saveAs(...)
+```
+
+
+
+
