@@ -1,7 +1,7 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 1.3.5
- * 2018-01-22 15:49:54
+ * 1.3.6
+ * 2018-03-16 14:39:40
  *
  * By Eli Grey, https://eligrey.com
  * License: MIT
@@ -33,8 +33,9 @@ export default var saveAs = saveAs || (function(view) {
 		}
 		, is_safari = /constructor/i.test(view.HTMLElement) || view.safari
 		, is_chrome_ios =/CriOS\/[\d]+/.test(navigator.userAgent)
+		, setImmediate = view.setImmediate || view.setTimeout
 		, throw_outside = function(ex) {
-			(view.setImmediate || view.setTimeout)(function() {
+			setImmediate(function() {
 				throw ex;
 			}, 0);
 		}
@@ -125,14 +126,14 @@ export default var saveAs = saveAs || (function(view) {
 
 			if (can_use_save_link) {
 				object_url = get_URL().createObjectURL(blob);
-				setTimeout(function() {
+				setImmediate(function() {
 					save_link.href = object_url;
 					save_link.download = name;
 					click(save_link);
 					dispatch_all();
 					revoke(object_url);
 					filesaver.readyState = filesaver.DONE;
-				});
+				}, 0);
 				return;
 			}
 
@@ -143,6 +144,7 @@ export default var saveAs = saveAs || (function(view) {
 			return new FileSaver(blob, name || blob.name || "download", no_auto_bom);
 		}
 	;
+
 	// IE 10+ (native saveAs)
 	if (typeof navigator !== "undefined" && navigator.msSaveOrOpenBlob) {
 		return function(blob, name, no_auto_bom) {
@@ -154,6 +156,8 @@ export default var saveAs = saveAs || (function(view) {
 			return navigator.msSaveOrOpenBlob(blob, name);
 		};
 	}
+
+	save_link.target = "_blank";
 
 	FS_proto.abort = function(){};
 	FS_proto.readyState = FS_proto.INIT = 0;
