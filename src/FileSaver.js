@@ -1,7 +1,7 @@
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 1.3.7
- * 2018-03-16 14:39:40
+ * 1.3.8
+ * 2018-03-22 14:03:47
  *
  * By Eli Grey, https://eligrey.com
  * License: MIT
@@ -157,7 +157,8 @@ export var saveAs = saveAs || (function(view) {
 		};
 	}
 
-	save_link.target = "_blank";
+	// todo: detect chrome extensions & packaged apps
+	//save_link.target = "_blank";
 
 	FS_proto.abort = function(){};
 	FS_proto.readyState = FS_proto.INIT = 0;
