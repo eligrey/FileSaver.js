@@ -5,7 +5,9 @@
   "main": "dist/FileSaver.js",
   "module": "src/FileSaver.js",
   "files": [
-    "dist/FileSaver.min.js"
+    "dist/FileSaver.js",
+    "dist/FileSaver.min.js",
+    "src/FileSaver.js"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
