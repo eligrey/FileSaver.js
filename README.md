@@ -58,6 +58,10 @@ saveAs must be run within a user interaction event such as onTouchDown or onClic
 
 Syntax
 ------
+### Import saveAs() from file-saver 
+```js
+import { saveAs } from 'file-saver/FileSaver';
+```
 
 ```js
 FileSaver saveAs(Blob/File data, optional DOMString filename, optional Boolean disableAutoBOM)
