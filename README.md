@@ -106,10 +106,12 @@ Note: The standard HTML5 `canvas.toBlob()` method is not available in all browse
 
 You can save a File constructor without specifying a filename. The
 File itself already contains a name, There is a hand full of ways to get a file
-instance (from storage, file input, new constructor)
+instance (from storage, file input, new constructor, clipboard event)
 But if you still want to change the name, then you can change it in the 2nd argument
 
 ```js
+// Note: Ie and Edge don't support the new File constructor,
+// so it's better to construct blobs and use saveAs(blob, filename)
 var file = new File(["Hello, world!"], "hello world.txt", {type: "text/plain;charset=utf-8"});
 FileSaver.saveAs(file);
 ```
