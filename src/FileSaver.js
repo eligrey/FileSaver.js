@@ -25,7 +25,30 @@ export var saveAs = saveAs || (function(view) {
 		, get_URL = function() {
 			return view.URL || view.webkitURL || view;
 		}
-		, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
+		, is_firefox_extension = window.location.protocol === 'moz-extension:'
+		, create_link_for_ff_ext = function () {
+			// Temporary fix for firefox extension on Mac / Linux
+			// reference: https://bugzilla.mozilla.org/show_bug.cgi?format=default&id=1420419
+			var iframeId 	= 'downloadFrame'
+			var $iframe 	= doc.createElementNS("http://www.w3.org/1999/xhtml", "iframe")
+
+			$iframe.id = iframeId
+			$iframe.style.visibility 	= 'hidden'
+			$iframe.style.position 		= 'absolute;'
+			$iframe.style.left 				= '-999px'
+			doc.body.appendChild($iframe)
+
+			var link = $iframe.contentDocument.createElement('a')
+
+			// wait for next tick when iframe is already in document,
+			// otherwise link won't be add to body of iframe
+			setTimeout(() => {
+				$iframe.contentDocument.body.appendChild(link)
+			})
+
+			return link
+		}
+		, save_link = is_firefox_extension ? create_link_for_ff_ext() : doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
 		, can_use_save_link = "download" in save_link
 		, click = function(node) {
 			var event = new MouseEvent("click");
