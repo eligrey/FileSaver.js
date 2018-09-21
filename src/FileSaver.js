@@ -95,7 +95,11 @@ export var saveAs = saveAs || (function(view) {
 						reader.onloadend = function() {
 							var url = is_chrome_ios ? reader.result : reader.result.replace(/^data:[^;]*;/, 'data:attachment/file;');
 							var popup = view.open(url, '_blank');
-							if(!popup) view.location.href = url;
+							if (!popup) {
+								view.location.href = url;
+							} else {
+								popup.opener = null;
+							}
 							url=undefined; // release reference before dispatching
 							filesaver.readyState = filesaver.DONE;
 							dispatch_all();
@@ -115,6 +119,8 @@ export var saveAs = saveAs || (function(view) {
 						if (!opened) {
 							// Apple does not allow window.open, see https://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/WorkingwithWindowsandTabs/WorkingwithWindowsandTabs.html
 							view.location.href = object_url;
+						} else {
+							opened.opener = null;
 						}
 					}
 					filesaver.readyState = filesaver.DONE;
