@@ -78,7 +78,7 @@
   }
 
   var saveAs = _global.saveAs || // probably in some web worker
-  typeof window !== 'undefined' && window !== _global ? function saveAs() {}
+  typeof window !== 'object' || window !== _global ? function saveAs() {}
   /* noop */
   // Use download attribute first if possible (#193 Lumia mobile)
   : 'download' in HTMLAnchorElement.prototype ? function saveAs(blob, name, autoBom) {
