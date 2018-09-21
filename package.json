@@ -1,8 +1,8 @@
 {
   "name": "file-saver",
-  "version": "2.0.0",
+  "version": "2.0.0-rc.1",
   "description": "An HTML5 saveAs() FileSaver implementation",
-  "main": "dist/FileSaver.js",
+  "main": "dist/FileSaver.min.js",
   "module": "src/FileSaver.js",
   "files": [
     "dist/FileSaver.js",
