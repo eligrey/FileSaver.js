@@ -16,6 +16,7 @@
   "ignore": [
       "*",
       "!FileSaver.*js",
+      "!FileSaver.*map",
       "!LICENSE.md"
   ]
 }

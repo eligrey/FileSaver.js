@@ -1,4 +1,4 @@
-If you need to save really large files bigger then the blob's size limitation or don't have 
+If you need to save really large files bigger then the blob's size limitation or don't have
 enough RAM, then have a look at the more advanced [StreamSaver.js](https://github.com/jimmywarting/StreamSaver.js)
 that can save data directly to the hard drive asynchronously with the power of the new streams API. That will have
 support for progress, cancelation and knowing when it's done writing
@@ -58,16 +58,16 @@ saveAs must be run within a user interaction event such as onTouchDown or onClic
 
 Syntax
 ------
-### Import saveAs() from file-saver 
+### Import saveAs() from file-saver
 ```js
 import { saveAs } from 'file-saver/FileSaver';
 ```
 
 ```js
-FileSaver saveAs(Blob/File data, optional DOMString filename, optional Boolean disableAutoBOM)
+FileSaver saveAs(Blob/File/Url, optional DOMString filename, optional Boolean autoBOM)
 ```
 
-Pass `true` for `disableAutoBOM` if you don't want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)).
+Pass `true` for `autoBOM` if you don't want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)).
 
 Examples
 --------
@@ -85,6 +85,16 @@ FileSaver.saveAs(blob, "hello world.txt");
 var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
 FileSaver.saveAs(blob, "hello world.txt");
 ```
+
+### Saving urls
+
+```js
+FileSaver.saveAs("https://httpbin.org/image", "image.jpg");
+```
+Using urls within the same origin will just use `a[download]`
+Otherwise it will first check if it supports cors header with a synchronously head request
+if it dose it will download the data and save it using blob urls
+if not it will try to download it using `a[download]`
 
 The standard W3C File API [`Blob`][4] interface is not available in all browsers.
 [Blob.js][5] is a cross-browser `Blob` implementation that solves this.
