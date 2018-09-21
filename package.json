@@ -1,6 +1,6 @@
 {
   "name": "file-saver",
-  "version": "1.3.8",
+  "version": "2.0.0",
   "description": "An HTML5 saveAs() FileSaver implementation",
   "main": "dist/FileSaver.js",
   "module": "src/FileSaver.js",
@@ -11,8 +11,8 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "build:development": "mkdir -p dist && babel src/FileSaver.js --out-file=dist/FileSaver.js",
-    "build:production": "NODE_ENV=production npm run build:development -- --out-file=dist/FileSaver.min.js",
+    "build:development": "babel -o dist/FileSaver.js --plugins @babel/plugin-transform-modules-umd src/FileSaver.js",
+    "build:production": "babel -o dist/FileSaver.min.js -s --plugins @babel/plugin-transform-modules-umd --presets minify src/FileSaver.js",
     "build": "npm run build:development && npm run build:production",
     "prepublishOnly": "npm run build"
   },
@@ -32,9 +32,9 @@
   },
   "homepage": "https://github.com/eligrey/FileSaver.js#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-minify": "^0.2.0"
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-transform-modules-umd": "^7.1.0",
+    "babel-preset-minify": "^0.4.3"
   }
 }
