@@ -57,7 +57,7 @@ function corsEnabled (url) {
 
 var saveAs = _global.saveAs ||
 // probably in some web worker
-(typeof window !== 'undefined' && window !== _global)
+(typeof window !== 'object' || window !== _global)
   ? function saveAs () { /* noop */ }
 
 // Use download attribute first if possible (#193 Lumia mobile)
