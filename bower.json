@@ -15,8 +15,7 @@
   "license": "MIT",
   "ignore": [
       "*",
-      "!FileSaver.*js",
-      "!FileSaver.*map",
+      "!dist/*",
       "!LICENSE.md"
   ]
 }
