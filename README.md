@@ -6,13 +6,9 @@ support for progress, cancelation and knowing when it's done writing
 FileSaver.js
 ============
 
-FileSaver.js implements the `saveAs()` FileSaver interface in browsers that do
-not natively support it. There is a [FileSaver.js demo][1] that demonstrates saving
-various media types.
-
 FileSaver.js is the solution to saving files on the client-side, and is perfect for
-webapps that need to generate files, or for saving sensitive information that shouldn't be
-sent to an external server.
+webapps that generates files on the client, However if the file is coming from the
+server we recomend you to first try to use [Content-Disposition][8] attachment response header as it has more cross browser compatible
 
 Looking for `canvas.toBlob()` for saving canvases? Check out
 [canvas-toBlob.js][2] for a cross-browser implementation.
@@ -136,6 +132,7 @@ FileSaver.saveAs(file);
   [5]: https://github.com/eligrey/Blob.js
   [6]: https://github.com/eligrey/canvas-toBlob.js
   [7]: https://github.com/jimmywarting/StreamSaver.js
+  [8]: https://github.com/eligrey/FileSaver.js/wiki/Saving-a-remote-file#using-http-header
 
 Installation
 ------------------
