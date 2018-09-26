@@ -1,5 +1,5 @@
 If you need to save really large files bigger then the blob's size limitation or don't have
-enough RAM, then have a look at the more advanced [StreamSaver.js](https://github.com/jimmywarting/StreamSaver.js)
+enough RAM, then have a look at the more advanced [StreamSaver.js][7]
 that can save data directly to the hard drive asynchronously with the power of the new streams API. That will have
 support for progress, cancelation and knowing when it's done writing
 
@@ -67,7 +67,7 @@ import { saveAs } from 'file-saver/FileSaver';
 FileSaver saveAs(Blob/File/Url, optional DOMString filename, optional Boolean autoBOM)
 ```
 
-Pass `true` for `autoBOM` if you don't want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)).
+Pass `true` for `autoBOM` if you want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)).
 
 Examples
 --------
@@ -102,8 +102,7 @@ The standard W3C File API [`Blob`][4] interface is not available in all browsers
 ### Saving a canvas
 
 ```js
-var canvas = document.getElementById("my-canvas"), ctx = canvas.getContext("2d");
-// draw to canvas...
+var canvas = document.getElementById("my-canvas");
 canvas.toBlob(function(blob) {
     saveAs(blob, "pretty image.png");
 });
@@ -136,7 +135,7 @@ FileSaver.saveAs(file);
   [4]: https://developer.mozilla.org/en-US/docs/DOM/Blob
   [5]: https://github.com/eligrey/Blob.js
   [6]: https://github.com/eligrey/canvas-toBlob.js
-
+  [7]: https://github.com/jimmywarting/StreamSaver.js
 Installation
 ------------------
 
