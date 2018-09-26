@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0.0-rc.2] - 2018-09-26
 
 - Added a changelog.md
-- Reverted `a.click()` to use dispatch with a try-catch ([#382])
+- Reverted `a.click()` to use dispatch with a try-catch ([#465], [#382])
 - Made third argument to an object where you have to pass `{ autoBom: true }`
   - boolean are depricated but still works
 
@@ -36,3 +36,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   [#294]: https://github.com/eligrey/FileSaver.js/issues/294
   [#432]: https://github.com/eligrey/FileSaver.js/issues/432
   [#382]: https://github.com/eligrey/FileSaver.js/issues/382
+  [#465]: https://github.com/eligrey/FileSaver.js/issues/465
+
