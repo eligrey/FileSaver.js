@@ -1,7 +1,7 @@
 {
   "name": "file-saver",
   "main": "dist/FileSaver.min.js",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0-rc.2",
   "homepage": "https://github.com/eligrey/FileSaver.js",
   "authors": [
     "Eli Grey <me@eligrey.com>"

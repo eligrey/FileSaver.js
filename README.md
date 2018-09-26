@@ -60,10 +60,10 @@ import { saveAs } from 'file-saver/FileSaver';
 ```
 
 ```js
-FileSaver saveAs(Blob/File/Url, optional DOMString filename, optional Boolean autoBOM)
+FileSaver saveAs(Blob/File/Url, optional DOMString filename, optional Object { autoBOM })
 ```
 
-Pass `true` for `autoBOM` if you want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)).
+Pass `{ autoBOM: true }` if you want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)).
 
 Examples
 --------
