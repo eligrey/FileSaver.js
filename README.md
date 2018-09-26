@@ -136,6 +136,7 @@ FileSaver.saveAs(file);
   [5]: https://github.com/eligrey/Blob.js
   [6]: https://github.com/eligrey/canvas-toBlob.js
   [7]: https://github.com/jimmywarting/StreamSaver.js
+
 Installation
 ------------------
 
