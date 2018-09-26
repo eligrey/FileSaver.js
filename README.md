@@ -56,7 +56,7 @@ Syntax
 ------
 ### Import saveAs() from file-saver
 ```js
-import saveAs from 'file-saver/src/FileSaver';
+import saveAs from 'file-saver';
 ```
 
 ```js
