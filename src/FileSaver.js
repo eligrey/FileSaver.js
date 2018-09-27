@@ -164,6 +164,4 @@ var saveAs = _global.saveAs ||
   }
 }
 
-_global.saveAs = saveAs
-
-export default saveAs
+module.exports = _global.saveAs = saveAs.saveAs = saveAs

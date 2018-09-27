@@ -1,22 +1,17 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports"], factory);
+    define([], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports);
+    factory();
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports);
+    factory();
     global.FileSaver = mod.exports;
   }
-})(this, function (_exports) {
+})(this, function () {
   "use strict";
-
-  Object.defineProperty(_exports, "__esModule", {
-    value: true
-  });
-  _exports.default = void 0;
 
   /*
   * FileSaver.js
@@ -186,7 +181,5 @@
       }, 4E4); // 40s
     }
   };
-  _global.saveAs = saveAs;
-  var _default = saveAs;
-  _exports.default = _default;
+  module.exports = _global.saveAs = saveAs.saveAs = saveAs;
 });
