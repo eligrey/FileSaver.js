@@ -120,7 +120,7 @@ var saveAs = _global.saveAs ||
       var a = document.createElement('a')
       a.href = blob
       a.target = '_blank'
-      setTimeout(function () { clikc(a) })
+      setTimeout(function () { click(a) })
     }
   } else {
     navigator.msSaveOrOpenBlob(bom(blob, opts), name)
