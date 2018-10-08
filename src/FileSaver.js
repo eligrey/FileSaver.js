@@ -163,5 +163,5 @@ var saveAs = _global.saveAs ||
     setTimeout(function () { URL.revokeObjectURL(url) }, 4E4) // 40s
   }
 }
-
+var module;
 module.exports = _global.saveAs = saveAs.saveAs = saveAs
