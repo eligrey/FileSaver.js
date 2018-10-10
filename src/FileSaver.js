@@ -9,7 +9,7 @@
 */
 
 
-// The one and only way of getting global scope in all enviorment
+// The one and only way of getting global scope in all environments
 // https://stackoverflow.com/q/3277182/1008999
 var _global = (function () {
 // some use content security policy to disable eval
@@ -60,7 +60,7 @@ function corsEnabled (url) {
   return xhr.status >= 200 && xhr.status <= 299
 }
 
-// `a.click()` don't work for all browsers (#465)
+// `a.click()` doesn't work for all browsers (#465)
 function click(node) {
   try {
     node.dispatchEvent(new MouseEvent('click'))
@@ -108,7 +108,7 @@ var saveAs = _global.saveAs ||
   }
 }
 
-// Use msSaveOrOpenBlob as a second approch
+// Use msSaveOrOpenBlob as a second approach
 : 'msSaveOrOpenBlob' in navigator
 ? function saveAs (blob, name, opts) {
   name = name || blob.name || 'download'
