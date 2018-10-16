@@ -46,7 +46,7 @@ function download (url, name, opts) {
   xhr.onload = function () {
     saveAs(xhr.response, name, opts)
   }
-  xhr.onerror = function () {
+  xhr.onerror = function () {
     console.error('could not download file')
   }
   xhr.send()
