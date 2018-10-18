@@ -164,4 +164,8 @@ var saveAs = _global.saveAs ||
   }
 }
 
-module.exports = _global.saveAs = saveAs.saveAs = saveAs
+_global.saveAs = saveAs.saveAs = saveAs
+
+if (typeof module !== 'undefined') {
+  module.exports = saveAs;
+}

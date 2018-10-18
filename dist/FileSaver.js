@@ -22,7 +22,7 @@
   * License : https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md (MIT)
   * source  : http://purl.eligrey.com/github/FileSaver.js
   */
-  // The one and only way of getting global scope in all enviorment
+  // The one and only way of getting global scope in all environments
   // https://stackoverflow.com/q/3277182/1008999
   var _global = function () {
     // some use content security policy to disable eval
@@ -77,7 +77,7 @@
     xhr.open('HEAD', url, false);
     xhr.send();
     return xhr.status >= 200 && xhr.status <= 299;
-  } // `a.click()` don't work for all browsers (#465)
+  } // `a.click()` doesn't work for all browsers (#465)
 
 
   function click(node) {
@@ -123,7 +123,7 @@
         click(a);
       }, 0);
     }
-  } // Use msSaveOrOpenBlob as a second approch
+  } // Use msSaveOrOpenBlob as a second approach
   : 'msSaveOrOpenBlob' in navigator ? function saveAs(blob, name, opts) {
     name = name || blob.name || 'download';
 
@@ -135,7 +135,7 @@
         a.href = blob;
         a.target = '_blank';
         setTimeout(function () {
-          clikc(a);
+          click(a);
         });
       }
     } else {
@@ -181,5 +181,9 @@
       }, 4E4); // 40s
     }
   };
-  module.exports = _global.saveAs = saveAs.saveAs = saveAs;
+  _global.saveAs = saveAs.saveAs = saveAs;
+
+  if (typeof module !== 'undefined') {
+    module.exports = saveAs;
+  }
 });
