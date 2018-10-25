@@ -6,6 +6,7 @@
   "files": [
     "dist/FileSaver.js",
     "dist/FileSaver.min.js",
+    "dist/FileSaver.min.js.map",
     "src/FileSaver.js"
   ],
   "scripts": {
