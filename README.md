@@ -7,13 +7,13 @@ FileSaver.js
 ============
 
 FileSaver.js is the solution to saving files on the client-side, and is perfect for
-webapps that generates files on the client, However if the file is coming from the
-server we recomend you to first try to use [Content-Disposition][8] attachment response header as it has more cross browser compatible
+web apps that generates files on the client, However if the file is coming from the
+server we recommend you to first try to use [Content-Disposition][8] attachment response header as it has more cross-browser compatible
 
 Looking for `canvas.toBlob()` for saving canvases? Check out
 [canvas-toBlob.js][2] for a cross-browser implementation.
 
-Supported browsers
+Supported Browsers
 ------------------
 
 | Browser        | Constructs as | Filenames    | Max Blob Size | Dependencies |
@@ -82,14 +82,14 @@ var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
 FileSaver.saveAs(blob, "hello world.txt");
 ```
 
-### Saving urls
+### Saving URLs
 
 ```js
 FileSaver.saveAs("https://httpbin.org/image", "image.jpg");
 ```
-Using urls within the same origin will just use `a[download]`
-Otherwise it will first check if it supports cors header with a synchronously head request
-if it does it will download the data and save it using blob urls
+Using URLs within the same origin will just use `a[download]`
+Otherwise, it will first check if it supports cors header with a synchronously head request
+if it does it will download the data and save it using blob URLs
 if not it will try to download it using `a[download]`
 
 The standard W3C File API [`Blob`][4] interface is not available in all browsers.
