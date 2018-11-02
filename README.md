@@ -89,7 +89,7 @@ FileSaver.saveAs("https://httpbin.org/image", "image.jpg");
 ```
 Using urls within the same origin will just use `a[download]`
 Otherwise it will first check if it supports cors header with a synchronously head request
-if it dose it will download the data and save it using blob urls
+if it does it will download the data and save it using blob urls
 if not it will try to download it using `a[download]`
 
 The standard W3C File API [`Blob`][4] interface is not available in all browsers.
