@@ -11,18 +11,11 @@
 
 // The one and only way of getting global scope in all environments
 // https://stackoverflow.com/q/3277182/1008999
-var _global = (function () {
-// some use content security policy to disable eval
-  try {
-    return Function('return this')() || (42, eval)('this')
-  } catch (e) {
-    // every global should have circular reference
-    // used for checking if someone writes var window = {}; var self = {}
-    return typeof window === 'object' && window.window === window ? window
-    : typeof self === 'object' && self.self === self ? self
-    : typeof global === 'object' && global.global === global ? global : this
-  }
-})()
+var _global = typeof window === 'object' && window.window === window
+  ? window : typeof self === 'object' && self.self === self
+  ? self : typeof global === 'object' && global.global === global
+  ? global
+  : this
 
 function bom (blob, opts) {
   if (typeof opts === 'undefined') opts = { autoBom: false }
