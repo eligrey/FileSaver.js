@@ -81,7 +81,7 @@
     }
   }
 
-  var saveAs = _global.saveAs || // probably in some web worker
+  var saveAs = _global.saveAs || ( // probably in some web worker
   typeof window !== 'object' || window !== _global ? function saveAs() {}
   /* noop */
   // Use download attribute first if possible (#193 Lumia mobile)
@@ -171,7 +171,7 @@
         URL.revokeObjectURL(url);
       }, 4E4); // 40s
     }
-  };
+  });
   _global.saveAs = saveAs.saveAs = saveAs;
 
   if (typeof module !== 'undefined') {
