@@ -50,8 +50,10 @@
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.responseType = 'blob';
+    xhr.onprogress = opts.onprogress;
 
     xhr.onload = function () {
+      delete opts.onprogress;
       saveAs(xhr.response, name, opts);
     };
 
