@@ -20,7 +20,7 @@ var _global = typeof window === 'object' && window.window === window
 function bom (blob, opts) {
   if (typeof opts === 'undefined') opts = { autoBom: false }
   else if (typeof opts !== 'object') {
-    console.warn('Depricated: Expected third argument to be a object')
+    console.warn('Deprecated: Expected third argument to be a object')
     opts = { autoBom: !opts }
   }
 
@@ -123,7 +123,7 @@ var saveAs = _global.saveAs || (
   // Fallback to using FileReader and a popup
   : function saveAs (blob, name, opts, popup) {
     // Open a popup immediately do go around popup blocker
-    // Mostly only avalible on user interaction and the fileReader is async so...
+    // Mostly only available on user interaction and the fileReader is async so...
     popup = popup || open('', '_blank')
     if (popup) {
       popup.document.title =
@@ -137,7 +137,7 @@ var saveAs = _global.saveAs || (
     var isChromeIOS = /CriOS\/[\d]+/.test(navigator.userAgent)
 
     if ((isChromeIOS || (force && isSafari)) && typeof FileReader === 'object') {
-      // Safari doesn't allow downloading of blob urls
+      // Safari doesn't allow downloading of blob URLs
       var reader = new FileReader()
       reader.onloadend = function () {
         var url = reader.result
