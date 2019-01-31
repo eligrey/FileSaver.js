@@ -54,7 +54,7 @@ saveAs must be run within a user interaction event such as onTouchDown or onClic
 
 Syntax
 ------
-### Import saveAs() from file-saver
+### Import `saveAs()` from file-saver
 ```js
 import { saveAs } from 'file-saver';
 ```
@@ -68,7 +68,7 @@ Pass `{ autoBOM: true }` if you want FileSaver.js to automatically provide Unico
 Examples
 --------
 
-### Saving text using require
+### Saving text using `require()`
 ```js
 var FileSaver = require('file-saver');
 var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
@@ -96,7 +96,6 @@ The standard W3C File API [`Blob`][4] interface is not available in all browsers
 [Blob.js][5] is a cross-browser `Blob` implementation that solves this.
 
 ### Saving a canvas
-
 ```js
 var canvas = document.getElementById("my-canvas");
 canvas.toBlob(function(blob) {
@@ -138,6 +137,7 @@ Installation
 ------------------
 
 ```bash
+# Basic Node.JS installation
 npm install file-saver --save
 bower install file-saver
 ```
@@ -145,5 +145,6 @@ bower install file-saver
 Additionally, TypeScript definitions can be installed via:
 
 ```bash
+# Additional typescript definitions
 npm install @types/file-saver --save-dev
 ```
