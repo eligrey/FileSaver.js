@@ -158,9 +158,9 @@ var saveAs = (
   }
 )
 
-var globalSaveAs = _global.saveAs || saveAs;
+saveAs = saveAs.saveAs;
 
-_global.saveAs = globalSaveAs.saveAs = globalSaveAs;
+_global.saveAs = _global.saveAs || saveAs;
 
 if (typeof module !== 'undefined') {
   module.exports = saveAs;
