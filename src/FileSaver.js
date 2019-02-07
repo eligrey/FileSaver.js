@@ -158,7 +158,7 @@ var saveAs = (
   }
 )
 
-saveAs = saveAs.saveAs;
+saveAs.saveAs = saveAs;
 
 _global.saveAs = _global.saveAs || saveAs;
 

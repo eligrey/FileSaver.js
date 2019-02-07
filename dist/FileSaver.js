@@ -172,7 +172,7 @@
       }, 4E4); // 40s
     }
   };
-  saveAs = saveAs.saveAs;
+  saveAs.saveAs = saveAs;
   _global.saveAs = _global.saveAs || saveAs;
 
   if (typeof module !== 'undefined') {
