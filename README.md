@@ -8,7 +8,7 @@ FileSaver.js
 
 FileSaver.js is the solution to saving files on the client-side, and is perfect for
 web apps that generates files on the client, However if the file is coming from the
-server we recommend you to first try to use [Content-Disposition][8] attachment response header as it has more cross-browser compatible
+server we recommend you to first try to use [Content-Disposition][8] attachment response header as it has more cross-browser compatiblity.
 
 Looking for `canvas.toBlob()` for saving canvases? Check out
 [canvas-toBlob.js][2] for a cross-browser implementation.
@@ -87,10 +87,10 @@ FileSaver.saveAs(blob, "hello world.txt");
 ```js
 FileSaver.saveAs("https://httpbin.org/image", "image.jpg");
 ```
-Using URLs within the same origin will just use `a[download]`
-Otherwise, it will first check if it supports cors header with a synchronously head request
-if it does it will download the data and save it using blob URLs
-if not it will try to download it using `a[download]`
+Using URLs within the same origin will just use `a[download]`.
+Otherwise, it will first check if it supports cors header with a synchronous head request.
+If it does, it will download the data and save using blob URLs. 
+If not, it will try to download it using `a[download]`.
 
 The standard W3C File API [`Blob`][4] interface is not available in all browsers.
 [Blob.js][5] is a cross-browser `Blob` implementation that solves this.
@@ -108,10 +108,10 @@ Note: The standard HTML5 `canvas.toBlob()` method is not available in all browse
 
 ### Saving File
 
-You can save a File constructor without specifying a filename. The
-File itself already contains a name, There is a hand full of ways to get a file
-instance (from storage, file input, new constructor, clipboard event)
-But if you still want to change the name, then you can change it in the 2nd argument
+You can save a File constructor without specifying a filename. If the
+file itself already contains a name, there is a hand full of ways to get a file
+instance (from storage, file input, new constructor, clipboard event). 
+If you still want to change the name, then you can change it in the 2nd argument.
 
 ```js
 // Note: Ie and Edge don't support the new File constructor,
