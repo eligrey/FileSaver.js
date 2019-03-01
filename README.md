@@ -20,8 +20,8 @@ Supported Browsers
 | -------------- | ------------- | ------------ | ------------- | ------------ |
 | Firefox 20+    | Blob          | Yes          | 800 MiB       | None         |
 | Firefox < 20   | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
-| Chrome         | Blob          | Yes          | [500 MiB][3]  | None         |
-| Chrome for Android | Blob      | Yes          | [500 MiB][3]  | None         |
+| Chrome         | Blob          | Yes          | [2GB][3]      | None         |
+| Chrome for Android | Blob      | Yes          | [RAM/5][3]    | None         |
 | Edge           | Blob          | Yes          | ?             | None         |
 | IE 10+         | Blob          | Yes          | 600 MiB       | None         |
 | Opera 15+      | Blob          | Yes          | 500 MiB       | None         |
@@ -126,7 +126,7 @@ FileSaver.saveAs(file);
 
   [1]: http://eligrey.com/demos/FileSaver.js/
   [2]: https://github.com/eligrey/canvas-toBlob.js
-  [3]: https://code.google.com/p/chromium/issues/detail?id=375297
+  [3]: https://bugs.chromium.org/p/chromium/issues/detail?id=375297#c107
   [4]: https://developer.mozilla.org/en-US/docs/DOM/Blob
   [5]: https://github.com/eligrey/Blob.js
   [6]: https://github.com/eligrey/canvas-toBlob.js
