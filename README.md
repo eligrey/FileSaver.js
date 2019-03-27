@@ -60,10 +60,10 @@ import { saveAs } from 'file-saver';
 ```
 
 ```js
-FileSaver saveAs(Blob/File/Url, optional DOMString filename, optional Object { autoBOM })
+FileSaver saveAs(Blob/File/Url, optional DOMString filename, optional Object { autoBom })
 ```
 
-Pass `{ autoBOM: true }` if you want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)).
+Pass `{ autoBom: true }` if you want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)). Note that this is only done if your blob type has `charset=utf-8` set.
 
 Examples
 --------
