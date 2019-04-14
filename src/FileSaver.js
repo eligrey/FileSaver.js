@@ -54,11 +54,8 @@ function corsEnabled (url) {
 }
 
 // `a.click()` doesn't work for all browsers (#465)
-function click(node, target) {
+function click(node) {
   try {
-    if (target) {
-      node.target = target
-    }
     node.dispatchEvent(new MouseEvent('click'))
   } catch (e) {
     var evt = document.createEvent('MouseEvents')
@@ -90,9 +87,12 @@ var saveAs = _global.saveAs || (
       // Support regular links
       a.href = blob
       if (a.origin !== location.origin) {
-        corsEnabled(a.href)
-          ? download(blob, name, opts)
-          : click(a, '_blank')
+        if (corsEnabled(a.href)) {
+          download(blob, name, opts)
+        } else {
+          a.target = '_blank';
+          click(a)
+        }
       } else {
         click(a)
       }
