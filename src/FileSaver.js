@@ -54,8 +54,11 @@ function corsEnabled (url) {
 }
 
 // `a.click()` doesn't work for all browsers (#465)
-function click(node) {
+function click(node, target) {
   try {
+    if (target) {
+      node.target = target
+    }
     node.dispatchEvent(new MouseEvent('click'))
   } catch (e) {
     var evt = document.createEvent('MouseEvents')
@@ -89,7 +92,7 @@ var saveAs = _global.saveAs || (
       if (a.origin !== location.origin) {
         corsEnabled(a.href)
           ? download(blob, name, opts)
-          : click(a, a.target = '_blank')
+          : click(a, '_blank')
       } else {
         click(a)
       }
