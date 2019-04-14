@@ -90,7 +90,7 @@ var saveAs = _global.saveAs || (
         if (corsEnabled(a.href)) {
           download(blob, name, opts)
         } else {
-          a.target = '_blank';
+          a.target = '_blank'
           click(a)
         }
       } else {
