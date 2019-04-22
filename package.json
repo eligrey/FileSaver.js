@@ -14,7 +14,8 @@
     "build:development": "babel -o dist/FileSaver.js --plugins @babel/plugin-transform-modules-umd src/FileSaver.js",
     "build:production": "babel -o dist/FileSaver.min.js -s --plugins @babel/plugin-transform-modules-umd --presets minify src/FileSaver.js",
     "build": "npm run build:development && npm run build:production",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "postinstall": "opencollective-postinstall"
   },
   "repository": {
     "type": "git",
@@ -36,5 +37,13 @@
     "@babel/core": "^7.1.0",
     "@babel/plugin-transform-modules-umd": "^7.1.0",
     "babel-preset-minify": "^0.4.3"
+  },
+  "dependencies": {
+    "opencollective-postinstall": "^2.0.2",
+    "opencollective": "^1.0.3"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/filesaverjs"
   }
 }
