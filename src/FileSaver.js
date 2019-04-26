@@ -36,6 +36,7 @@ function download (url, name, opts) {
   var xhr = new XMLHttpRequest()
   xhr.open('GET', url)
   xhr.responseType = 'blob'
+  xhr.onprogress instanceof Function && (xhr.onprogress = opts.onprogress)
   xhr.onload = function () {
     saveAs(xhr.response, name, opts)
   }
