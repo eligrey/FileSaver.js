@@ -30,7 +30,7 @@
     if (typeof opts === 'undefined') opts = {
       autoBom: false
     };else if (typeof opts !== 'object') {
-      console.warn('Depricated: Expected third argument to be a object');
+      console.warn('Deprecated: Expected third argument to be a object');
       opts = {
         autoBom: !opts
       };
@@ -82,7 +82,7 @@
     }
   }
 
-  var saveAs = _global.saveAs || // probably in some web worker
+  var saveAs = _global.saveAs || ( // probably in some web worker
   typeof window !== 'object' || window !== _global ? function saveAs() {}
   /* noop */
   // Use download attribute first if possible (#193 Lumia mobile)
@@ -136,7 +136,7 @@
   } // Fallback to using FileReader and a popup
   : function saveAs(blob, name, opts, popup) {
     // Open a popup immediately do go around popup blocker
-    // Mostly only avalible on user interaction and the fileReader is async so...
+    // Mostly only available on user interaction and the fileReader is async so...
     popup = popup || open('', '_blank');
 
     if (popup) {
@@ -151,7 +151,7 @@
     var isChromeIOS = /CriOS\/[\d]+/.test(navigator.userAgent);
 
     if ((isChromeIOS || force && isSafari) && typeof FileReader === 'object') {
-      // Safari doesn't allow downloading of blob urls
+      // Safari doesn't allow downloading of blob URLs
       var reader = new FileReader();
 
       reader.onloadend = function () {
@@ -172,7 +172,7 @@
         URL.revokeObjectURL(url);
       }, 4E4); // 40s
     }
-  };
+  });
   _global.saveAs = saveAs.saveAs = saveAs;
 
   if (typeof module !== 'undefined') {

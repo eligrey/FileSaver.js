@@ -8,7 +8,7 @@ FileSaver.js
 
 FileSaver.js is the solution to saving files on the client-side, and is perfect for
 web apps that generates files on the client, However if the file is coming from the
-server we recommend you to first try to use [Content-Disposition][8] attachment response header as it has more cross-browser compatible
+server we recommend you to first try to use [Content-Disposition][8] attachment response header as it has more cross-browser compatiblity.
 
 Looking for `canvas.toBlob()` for saving canvases? Check out
 [canvas-toBlob.js][2] for a cross-browser implementation.
@@ -20,8 +20,8 @@ Supported Browsers
 | -------------- | ------------- | ------------ | ------------- | ------------ |
 | Firefox 20+    | Blob          | Yes          | 800 MiB       | None         |
 | Firefox < 20   | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
-| Chrome         | Blob          | Yes          | [500 MiB][3]  | None         |
-| Chrome for Android | Blob      | Yes          | [500 MiB][3]  | None         |
+| Chrome         | Blob          | Yes          | [2GB][3]      | None         |
+| Chrome for Android | Blob      | Yes          | [RAM/5][3]    | None         |
 | Edge           | Blob          | Yes          | ?             | None         |
 | IE 10+         | Blob          | Yes          | 600 MiB       | None         |
 | Opera 15+      | Blob          | Yes          | 500 MiB       | None         |
@@ -54,9 +54,9 @@ saveAs must be run within a user interaction event such as onTouchDown or onClic
 
 Syntax
 ------
-### Import saveAs() from file-saver
+### Import `saveAs()` from file-saver
 ```js
-import saveAs from 'file-saver';
+import { saveAs } from 'file-saver';
 ```
 
 ```js
@@ -68,7 +68,7 @@ Pass `{ autoBOM: true }` if you want FileSaver.js to automatically provide Unico
 Examples
 --------
 
-### Saving text using require
+### Saving text using `require()`
 ```js
 var FileSaver = require('file-saver');
 var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
@@ -87,16 +87,15 @@ FileSaver.saveAs(blob, "hello world.txt");
 ```js
 FileSaver.saveAs("https://httpbin.org/image", "image.jpg");
 ```
-Using URLs within the same origin will just use `a[download]`
-Otherwise, it will first check if it supports cors header with a synchronously head request
-if it does it will download the data and save it using blob URLs
-if not it will try to download it using `a[download]`
+Using URLs within the same origin will just use `a[download]`.
+Otherwise, it will first check if it supports cors header with a synchronous head request.
+If it does, it will download the data and save using blob URLs. 
+If not, it will try to download it using `a[download]`.
 
 The standard W3C File API [`Blob`][4] interface is not available in all browsers.
 [Blob.js][5] is a cross-browser `Blob` implementation that solves this.
 
 ### Saving a canvas
-
 ```js
 var canvas = document.getElementById("my-canvas");
 canvas.toBlob(function(blob) {
@@ -109,10 +108,10 @@ Note: The standard HTML5 `canvas.toBlob()` method is not available in all browse
 
 ### Saving File
 
-You can save a File constructor without specifying a filename. The
-File itself already contains a name, There is a hand full of ways to get a file
-instance (from storage, file input, new constructor, clipboard event)
-But if you still want to change the name, then you can change it in the 2nd argument
+You can save a File constructor without specifying a filename. If the
+file itself already contains a name, there is a hand full of ways to get a file
+instance (from storage, file input, new constructor, clipboard event). 
+If you still want to change the name, then you can change it in the 2nd argument.
 
 ```js
 // Note: Ie and Edge don't support the new File constructor,
@@ -127,7 +126,7 @@ FileSaver.saveAs(file);
 
   [1]: http://eligrey.com/demos/FileSaver.js/
   [2]: https://github.com/eligrey/canvas-toBlob.js
-  [3]: https://code.google.com/p/chromium/issues/detail?id=375297
+  [3]: https://bugs.chromium.org/p/chromium/issues/detail?id=375297#c107
   [4]: https://developer.mozilla.org/en-US/docs/DOM/Blob
   [5]: https://github.com/eligrey/Blob.js
   [6]: https://github.com/eligrey/canvas-toBlob.js
@@ -138,6 +137,7 @@ Installation
 ------------------
 
 ```bash
+# Basic Node.JS installation
 npm install file-saver --save
 bower install file-saver
 ```
@@ -145,5 +145,6 @@ bower install file-saver
 Additionally, TypeScript definitions can be installed via:
 
 ```bash
+# Additional typescript definitions
 npm install @types/file-saver --save-dev
 ```
