@@ -8,7 +8,6 @@
 * source  : http://purl.eligrey.com/github/FileSaver.js
 */
 
-
 // The one and only way of getting global scope in all environments
 // https://stackoverflow.com/q/3277182/1008999
 var _global = typeof window === 'object' && window.window === window
@@ -50,15 +49,13 @@ function corsEnabled (url) {
   // use sync to avoid popup blocker
   xhr.open('HEAD', url, false)
   try {
-    xhr.send();
-  }catch(e) {
-    return false;
-  }
+    xhr.send()
+  } catch (e) {}
   return xhr.status >= 200 && xhr.status <= 299
 }
 
 // `a.click()` doesn't work for all browsers (#465)
-function click(node) {
+function click (node) {
   try {
     node.dispatchEvent(new MouseEvent('click'))
   } catch (e) {
