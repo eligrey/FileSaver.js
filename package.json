@@ -7,7 +7,8 @@
     "dist/FileSaver.js",
     "dist/FileSaver.min.js",
     "dist/FileSaver.min.js.map",
-    "src/FileSaver.js"
+    "src/FileSaver.js",
+    "src/index.d.ts"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
