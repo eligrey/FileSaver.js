@@ -1,3 +1,5 @@
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md)
+
 If you need to save really large files bigger then the blob's size limitation or don't have
 enough RAM, then have a look at the more advanced [StreamSaver.js][7]
 that can save data directly to the hard drive asynchronously with the power of the new streams API. That will have
