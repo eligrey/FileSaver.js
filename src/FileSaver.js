@@ -75,7 +75,8 @@ var saveAs = _global.saveAs || (
   : 'download' in HTMLAnchorElement.prototype
   ? function saveAs (blob, name, opts) {
     var URL = _global.URL || _global.webkitURL
-    var a = document.createElement('a')
+    // Namespace is used to prevent conflict w/ Chrome Poper Blocker extension (Issue #561)
+    var a = document.createElementNS('http://www.w3.org/1999/xhtml', 'a')
     name = name || blob.name || 'download'
 
     a.download = name
