@@ -153,7 +153,7 @@
 
     var isChromeIOS = /CriOS\/[\d]+/.test(navigator.userAgent);
 
-    if ((isChromeIOS || force && isSafari) && typeof FileReader === 'object') {
+    if ((isChromeIOS || force && isSafari) && typeof FileReader !== 'undefined') {
       // Safari doesn't allow downloading of blob URLs
       var reader = new FileReader();
 
