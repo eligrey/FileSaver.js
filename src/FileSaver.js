@@ -74,7 +74,7 @@ var saveAs = _global.saveAs || (
   // Use download attribute first if possible (#193 Lumia mobile)
   : 'download' in HTMLAnchorElement.prototype
   ? function saveAs (blob, name, opts) {
-    var URL = _global.URL || _global.webkitURL
+    var URL = (_global.URL && _global.URL.createObjectURL) ? _global.URL : _global.webkitURL
     var a = document.createElement('a')
     name = name || blob.name || 'download'
 
