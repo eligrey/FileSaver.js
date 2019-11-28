@@ -46,13 +46,13 @@
     return blob;
   }
 
-  function download(url, name, opts) {
+  function download(url, name, opts, popup) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.responseType = 'blob';
 
     xhr.onload = function () {
-      saveAs(xhr.response, name, opts);
+      saveAs(xhr.response, name, opts, popup);
     };
 
     xhr.onerror = function () {
@@ -146,7 +146,7 @@
       popup.document.title = popup.document.body.innerText = 'downloading...';
     }
 
-    if (typeof blob === 'string') return download(blob, name, opts);
+    if (typeof blob === 'string') return download(blob, name, opts, popup);
     var force = blob.type === 'application/octet-stream';
 
     var isSafari = /constructor/i.test(_global.HTMLElement) || _global.safari;
