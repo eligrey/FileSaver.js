@@ -85,11 +85,13 @@
     }
   }
 
+  var isChromeIOS = /CriOS\/[\d]+/.test(navigator.userAgent);
   var saveAs = _global.saveAs || ( // probably in some web worker
   typeof window !== 'object' || window !== _global ? function saveAs() {}
   /* noop */
   // Use download attribute first if possible (#193 Lumia mobile)
-  : 'download' in HTMLAnchorElement.prototype ? function saveAs(blob, name, opts) {
+  // Except of Chrome iOS because it behaves incorrectly on iOS 13
+  : 'download' in HTMLAnchorElement.prototype && !isChromeIOS ? function saveAs(blob, name, opts) {
     var URL = _global.URL || _global.webkitURL;
     var a = document.createElement('a');
     name = name || blob.name || 'download';
@@ -151,8 +153,6 @@
     var force = blob.type === 'application/octet-stream';
 
     var isSafari = /constructor/i.test(_global.HTMLElement) || _global.safari;
-
-    var isChromeIOS = /CriOS\/[\d]+/.test(navigator.userAgent);
 
     if ((isChromeIOS || force && isSafari) && typeof FileReader !== 'undefined') {
       // Safari doesn't allow downloading of blob URLs
