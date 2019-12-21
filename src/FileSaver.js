@@ -66,13 +66,16 @@ function click (node) {
   }
 }
 
+// Detect WebKit inside a native macOS app
+var isWebKit = /AppleWebKit/.test(navigator.userAgent)
+
 var saveAs = _global.saveAs || (
   // probably in some web worker
   (typeof window !== 'object' || window !== _global)
     ? function saveAs () { /* noop */ }
 
-  // Use download attribute first if possible (#193 Lumia mobile)
-  : 'download' in HTMLAnchorElement.prototype
+  // Use download attribute first if possible (#193 Lumia mobile) unless this is a native macOS app
+  : ('download' in HTMLAnchorElement.prototype && !isWebKit)
   ? function saveAs (blob, name, opts) {
     var URL = _global.URL || _global.webkitURL
     var a = document.createElement('a')
@@ -137,7 +140,7 @@ var saveAs = _global.saveAs || (
     var isSafari = /constructor/i.test(_global.HTMLElement) || _global.safari
     var isChromeIOS = /CriOS\/[\d]+/.test(navigator.userAgent)
 
-    if ((isChromeIOS || (force && isSafari)) && typeof FileReader !== 'undefined') {
+    if (((isChromeIOS || (force && isSafari)) && typeof FileReader === 'object') || isWebKit && typeof FileReader === 'function') {
       // Safari doesn't allow downloading of blob URLs
       var reader = new FileReader()
       reader.onloadend = function () {
