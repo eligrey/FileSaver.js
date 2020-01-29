@@ -10,7 +10,7 @@
     factory();
     global.FileSaver = mod.exports;
   }
-})(this, function () {
+})(typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : this, function () {
   "use strict";
 
   /*
@@ -86,7 +86,7 @@
   }
 
   var saveAs = _global.saveAs || ( // probably in some web worker
-  typeof window !== 'object' || window !== _global ? function saveAs() {}
+  typeof window !== 'object' || window !== _global || typeof HTMLAnchorElement === 'undefined' ? function saveAs() {}
   /* noop */
   // Use download attribute first if possible (#193 Lumia mobile)
   : 'download' in HTMLAnchorElement.prototype ? function saveAs(blob, name, opts) {
