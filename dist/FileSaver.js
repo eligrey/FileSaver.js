@@ -155,7 +155,7 @@
 
     var isChromeIOS = /CriOS\/[\d]+/.test(navigator.userAgent);
 
-    if ((isChromeIOS || isWebKit || force && isSafari) && typeof FileReader !== 'undefined') {
+    if ((isChromeIOS || force && isSafari || isWebKit) && typeof FileReader !== 'undefined') {
       // Safari doesn't allow downloading of blob URLs
       var reader = new FileReader();
 
