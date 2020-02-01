@@ -30,7 +30,7 @@
     if (typeof opts === 'undefined') opts = {
       autoBom: false
     };else if (typeof opts !== 'object') {
-      console.warn('Depricated: Expected third argument to be a object');
+      console.warn('Deprecated: Expected third argument to be a object');
       opts = {
         autoBom: !opts
       };
@@ -66,7 +66,11 @@
     var xhr = new XMLHttpRequest(); // use sync to avoid popup blocker
 
     xhr.open('HEAD', url, false);
-    xhr.send();
+
+    try {
+      xhr.send();
+    } catch (e) {}
+
     return xhr.status >= 200 && xhr.status <= 299;
   } // `a.click()` doesn't work for all browsers (#465)
 
@@ -79,13 +83,15 @@
       evt.initMouseEvent('click', true, true, window, 0, 0, 0, 80, 20, false, false, false, false, 0, null);
       node.dispatchEvent(evt);
     }
-  }
+  } // Detect WebKit inside a native macOS app
 
+
+  var isWebKit = /AppleWebKit/.test(navigator.userAgent);
   var saveAs = _global.saveAs || ( // probably in some web worker
   typeof window !== 'object' || window !== _global ? function saveAs() {}
   /* noop */
-  // Use download attribute first if possible (#193 Lumia mobile)
-  : 'download' in HTMLAnchorElement.prototype ? function saveAs(blob, name, opts) {
+  // Use download attribute first if possible (#193 Lumia mobile) unless this is a native macOS app
+  : 'download' in HTMLAnchorElement.prototype && !isWebKit ? function saveAs(blob, name, opts) {
     var URL = _global.URL || _global.webkitURL;
     var a = document.createElement('a');
     name = name || blob.name || 'download';
@@ -135,7 +141,7 @@
   } // Fallback to using FileReader and a popup
   : function saveAs(blob, name, opts, popup) {
     // Open a popup immediately do go around popup blocker
-    // Mostly only avalible on user interaction and the fileReader is async so...
+    // Mostly only available on user interaction and the fileReader is async so...
     popup = popup || open('', '_blank');
 
     if (popup) {
@@ -149,8 +155,8 @@
 
     var isChromeIOS = /CriOS\/[\d]+/.test(navigator.userAgent);
 
-    if ((isChromeIOS || force && isSafari) && typeof FileReader === 'object') {
-      // Safari doesn't allow downloading of blob urls
+    if ((isChromeIOS || force && isSafari || isWebKit) && typeof FileReader !== 'undefined') {
+      // Safari doesn't allow downloading of blob URLs
       var reader = new FileReader();
 
       reader.onloadend = function () {

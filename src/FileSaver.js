@@ -8,7 +8,6 @@
 * source  : http://purl.eligrey.com/github/FileSaver.js
 */
 
-
 // The one and only way of getting global scope in all environments
 // https://stackoverflow.com/q/3277182/1008999
 var _global = typeof window === 'object' && window.window === window
@@ -49,12 +48,14 @@ function corsEnabled (url) {
   var xhr = new XMLHttpRequest()
   // use sync to avoid popup blocker
   xhr.open('HEAD', url, false)
-  xhr.send()
+  try {
+    xhr.send()
+  } catch (e) {}
   return xhr.status >= 200 && xhr.status <= 299
 }
 
 // `a.click()` doesn't work for all browsers (#465)
-function click(node) {
+function click (node) {
   try {
     node.dispatchEvent(new MouseEvent('click'))
   } catch (e) {
@@ -65,13 +66,16 @@ function click(node) {
   }
 }
 
+// Detect WebKit inside a native macOS app
+var isWebKit = /AppleWebKit/.test(navigator.userAgent)
+
 var saveAs = _global.saveAs || (
   // probably in some web worker
   (typeof window !== 'object' || window !== _global)
     ? function saveAs () { /* noop */ }
 
-  // Use download attribute first if possible (#193 Lumia mobile)
-  : (typeof HTMLAnchorElement !== 'undefined' && 'download' in HTMLAnchorElement.prototype)
+  // Use download attribute first if possible (#193 Lumia mobile) unless this is a native macOS app
+  : (typeof HTMLAnchorElement !== 'undefined' && 'download' in HTMLAnchorElement.prototype && !isWebKit)
   ? function saveAs (blob, name, opts) {
     var URL = _global.URL || _global.webkitURL
     var a = document.createElement('a')
@@ -136,7 +140,7 @@ var saveAs = _global.saveAs || (
     var isSafari = /constructor/i.test(_global.HTMLElement) || _global.safari
     var isChromeIOS = /CriOS\/[\d]+/.test(navigator.userAgent)
 
-    if ((isChromeIOS || (force && isSafari)) && typeof FileReader === 'object') {
+    if ((isChromeIOS || (force && isSafari) || isWebKit) && typeof FileReader !== 'undefined') {
       // Safari doesn't allow downloading of blob URLs
       var reader = new FileReader()
       reader.onloadend = function () {
