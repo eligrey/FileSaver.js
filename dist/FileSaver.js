@@ -46,13 +46,13 @@
     return blob;
   }
 
-  function download(url, name, opts, popup) {
+  function download(url, name, opts) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.responseType = 'blob';
 
     xhr.onload = function () {
-      saveAs(xhr.response, name, opts, popup);
+      saveAs(xhr.response, name, opts);
     };
 
     xhr.onerror = function () {
@@ -98,8 +98,7 @@
     a.download = name;
     a.rel = 'noopener'; // tabnabbing
     // TODO: detect chrome extensions & packaged apps
-
-    a.target = '_blank';
+    // a.target = '_blank'
 
     if (typeof blob === 'string') {
       // Support regular links
@@ -149,7 +148,7 @@
       popup.document.title = popup.document.body.innerText = 'downloading...';
     }
 
-    if (typeof blob === 'string') return download(blob, name, opts, popup);
+    if (typeof blob === 'string') return download(blob, name, opts);
     var force = blob.type === 'application/octet-stream';
 
     var isSafari = /constructor/i.test(_global.HTMLElement) || _global.safari;

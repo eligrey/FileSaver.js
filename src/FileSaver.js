@@ -138,7 +138,6 @@ var saveAs = _global.saveAs || (
 
     var force = blob.type === 'application/octet-stream'
     var isSafari = /constructor/i.test(_global.HTMLElement) || _global.safari
-    var isChromeIOS = /CriOS\/[\d]+/.test(navigator.userAgent)
 
     if ((isChromeIOS || (force && isSafari) || isWebKit) && typeof FileReader !== 'undefined') {
       // Safari doesn't allow downloading of blob URLs
