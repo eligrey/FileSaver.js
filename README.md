@@ -1,4 +1,4 @@
-If you need to save really large files bigger then the blob's size limitation or don't have
+If you need to save really large files bigger than the blob's size limitation or don't have
 enough RAM, then have a look at the more advanced [StreamSaver.js][7]
 that can save data directly to the hard drive asynchronously with the power of the new streams API. That will have
 support for progress, cancelation and knowing when it's done writing
@@ -89,7 +89,7 @@ FileSaver.saveAs("https://httpbin.org/image", "image.jpg");
 ```
 Using URLs within the same origin will just use `a[download]`.
 Otherwise, it will first check if it supports cors header with a synchronous head request.
-If it does, it will download the data and save using blob URLs. 
+If it does, it will download the data and save using blob URLs.
 If not, it will try to download it using `a[download]`.
 
 The standard W3C File API [`Blob`][4] interface is not available in all browsers.
@@ -110,7 +110,7 @@ Note: The standard HTML5 `canvas.toBlob()` method is not available in all browse
 
 You can save a File constructor without specifying a filename. If the
 file itself already contains a name, there is a hand full of ways to get a file
-instance (from storage, file input, new constructor, clipboard event). 
+instance (from storage, file input, new constructor, clipboard event).
 If you still want to change the name, then you can change it in the 2nd argument.
 
 ```js
