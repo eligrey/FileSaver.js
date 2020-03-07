@@ -31,12 +31,12 @@ function bom (blob, opts) {
   return blob
 }
 
-function download (url, name, opts) {
+function download (url, name, opts, popup) {
   var xhr = new XMLHttpRequest()
   xhr.open('GET', url)
   xhr.responseType = 'blob'
   xhr.onload = function () {
-    saveAs(xhr.response, name, opts)
+    saveAs(xhr.response, name, opts, popup)
   }
   xhr.onerror = function () {
     console.error('could not download file')
@@ -66,16 +66,16 @@ function click (node) {
   }
 }
 
-// Detect WebKit inside a native macOS app
-var isWebKit = /AppleWebKit/.test(navigator.userAgent)
+var isChromeIOS = /CriOS\/[\d]+/.test(navigator.userAgent)
 
 var saveAs = _global.saveAs || (
   // probably in some web worker
   (typeof window !== 'object' || window !== _global)
     ? function saveAs () { /* noop */ }
 
-  // Use download attribute first if possible (#193 Lumia mobile) unless this is a native macOS app
-  : ('download' in HTMLAnchorElement.prototype && !isWebKit)
+  // Use download attribute first if possible (#193 Lumia mobile)
+  // Except of Chrome iOS because it behaves incorrectly on iOS 13
+  : 'download' in HTMLAnchorElement.prototype && !isChromeIOS
   ? function saveAs (blob, name, opts) {
     var URL = _global.URL || _global.webkitURL
     var a = document.createElement('a')
@@ -85,7 +85,7 @@ var saveAs = _global.saveAs || (
     a.rel = 'noopener' // tabnabbing
 
     // TODO: detect chrome extensions & packaged apps
-    // a.target = '_blank'
+    a.target = '_blank'
 
     if (typeof blob === 'string') {
       // Support regular links
@@ -134,13 +134,12 @@ var saveAs = _global.saveAs || (
       popup.document.body.innerText = 'downloading...'
     }
 
-    if (typeof blob === 'string') return download(blob, name, opts)
+    if (typeof blob === 'string') return download(blob, name, opts, popup)
 
     var force = blob.type === 'application/octet-stream'
     var isSafari = /constructor/i.test(_global.HTMLElement) || _global.safari
-    var isChromeIOS = /CriOS\/[\d]+/.test(navigator.userAgent)
 
-    if ((isChromeIOS || (force && isSafari) || isWebKit) && typeof FileReader !== 'undefined') {
+    if ((isChromeIOS || (force && isSafari)) && typeof FileReader !== 'undefined') {
       // Safari doesn't allow downloading of blob URLs
       var reader = new FileReader()
       reader.onloadend = function () {
