@@ -93,7 +93,7 @@
   typeof window !== 'object' || window !== _global ? function saveAs() {}
   /* noop */
   // Use download attribute first if possible (#193 Lumia mobile) unless this is a macOS WebView
-  : 'download' in HTMLAnchorElement.prototype && !isMacOSWebView ? function saveAs(blob, name, opts) {
+  : typeof HTMLAnchorElement != 'undefined' && 'download' in HTMLAnchorElement.prototype && !isMacOSWebView ? function saveAs(blob, name, opts) {
     var URL = _global.URL || _global.webkitURL;
     var a = document.createElement('a');
     name = name || blob.name || 'download';
@@ -123,7 +123,7 @@
       }, 0);
     }
   } // Use msSaveOrOpenBlob as a second approach
-  : 'msSaveOrOpenBlob' in navigator ? function saveAs(blob, name, opts) {
+  : typeof navigator != 'undefined' && 'msSaveOrOpenBlob' in navigator ? function saveAs(blob, name, opts) {
     name = name || blob.name || 'download';
 
     if (typeof blob === 'string') {
