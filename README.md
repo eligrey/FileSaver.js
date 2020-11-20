@@ -3,7 +3,7 @@ enough RAM, then have a look at the more advanced [StreamSaver.js][7]
 that can save data directly to the hard drive asynchronously with the power of the new streams API. That will have
 support for progress, cancelation and knowing when it's done writing
 
-FileSaver.js
+FileSaver.js [![Backers on Open Collective](https://opencollective.com/filesaverjs/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/filesaverjs/sponsors/badge.svg)](#sponsors) 
 ============
 
 FileSaver.js is the solution to saving files on the client-side, and is perfect for
@@ -148,3 +148,33 @@ Additionally, TypeScript definitions can be installed via:
 # Additional typescript definitions
 npm install @types/file-saver --save-dev
 ```
+
+## Contributors
+
+This project exists thanks to all the people who contribute. 
+<a href="https://github.com/eligrey/FileSaver.js/graphs/contributors"><img src="https://opencollective.com/filesaverjs/contributors.svg?width=890&button=false" /></a>
+
+
+## Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/filesaverjs#backer)]
+
+<a href="https://opencollective.com/filesaverjs#backers" target="_blank"><img src="https://opencollective.com/filesaverjs/backers.svg?width=890"></a>
+
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/filesaverjs#sponsor)]
+
+<a href="https://opencollective.com/filesaverjs/sponsor/0/website" target="_blank"><img src="https://opencollective.com/filesaverjs/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/filesaverjs/sponsor/1/website" target="_blank"><img src="https://opencollective.com/filesaverjs/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/filesaverjs/sponsor/2/website" target="_blank"><img src="https://opencollective.com/filesaverjs/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/filesaverjs/sponsor/3/website" target="_blank"><img src="https://opencollective.com/filesaverjs/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/filesaverjs/sponsor/4/website" target="_blank"><img src="https://opencollective.com/filesaverjs/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/filesaverjs/sponsor/5/website" target="_blank"><img src="https://opencollective.com/filesaverjs/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/filesaverjs/sponsor/6/website" target="_blank"><img src="https://opencollective.com/filesaverjs/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/filesaverjs/sponsor/7/website" target="_blank"><img src="https://opencollective.com/filesaverjs/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/filesaverjs/sponsor/8/website" target="_blank"><img src="https://opencollective.com/filesaverjs/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/filesaverjs/sponsor/9/website" target="_blank"><img src="https://opencollective.com/filesaverjs/sponsor/9/avatar.svg"></a>
+
+
