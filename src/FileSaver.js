@@ -16,6 +16,17 @@ var _global = typeof window === 'object' && window.window === window
   ? global
   : this
 
+function stripNameOfInvalidChars(name) {
+  var isEdge17_17134 = /Edge\/17.17134/.test(navigator.userAgent)
+  if(isEdge17_17134){
+    var forbiddenChars = ['<', '>', ':', '"', '/', '\\', '|', '?', '*'];
+    for(var i = 0;i < forbiddenChars.length; i++) {
+      name = name.replace(forbiddenChars[i], '_');
+    }
+  }
+  return name;
+}
+
 function bom (blob, opts) {
   if (typeof opts === 'undefined') opts = { autoBom: false }
   else if (typeof opts !== 'object') {
@@ -82,6 +93,7 @@ var saveAs = _global.saveAs || (
     var URL = _global.URL || _global.webkitURL
     var a = document.createElement('a')
     name = name || blob.name || 'download'
+    name = stripNameOfInvalidChars(name);
 
     a.download = name
     a.rel = 'noopener' // tabnabbing
