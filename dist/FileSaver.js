@@ -89,6 +89,7 @@
 
 
   var isMacOSWebView = /Macintosh/.test(navigator.userAgent) && /AppleWebKit/.test(navigator.userAgent) && !/Safari/.test(navigator.userAgent);
+  var isSamsungBrowser = /SamsungBrowser/.test(navigator.userAgent);
   var saveAs = _global.saveAs || ( // probably in some web worker
   typeof window !== 'object' || window !== _global ? function saveAs() {}
   /* noop */
@@ -118,9 +119,14 @@
         URL.revokeObjectURL(a.href);
       }, 4E4); // 40s
 
-      setTimeout(function () {
+      if (isSamsungBrowser) {
+        // SamsungBrowser blocks by default "auto downloads" i.e. not initiated by user interaction (#660)
         click(a);
-      }, 0);
+      } else {
+        setTimeout(function () {
+          click(a);
+        }, 0);
+      }
     }
   } // Use msSaveOrOpenBlob as a second approach
   : 'msSaveOrOpenBlob' in navigator ? function saveAs(blob, name, opts) {
