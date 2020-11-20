@@ -31,7 +31,7 @@ function bom (blob, opts) {
   return blob
 }
 
-function download (url, name, opts) {
+function download (url, name, opts,popup) {
   var xhr = new XMLHttpRequest()
   xhr.open('GET', url)
   xhr.responseType = 'blob'
@@ -136,7 +136,7 @@ var saveAs = _global.saveAs || (
       popup.document.body.innerText = 'downloading...'
     }
 
-    if (typeof blob === 'string') return download(blob, name, opts)
+    if (typeof blob === 'string') return download(blob, name, opts,popup)
 
     var force = blob.type === 'application/octet-stream'
     var isSafari = /constructor/i.test(_global.HTMLElement) || _global.safari
