@@ -63,9 +63,9 @@
   }
 
   function corsEnabled(url) {
-    var xhr = new XMLHttpRequest(); // use sync to avoid popup blocker
+    var xhr = new XMLHttpRequest(); // Asynchronous request may be blocked by some popup blockers
 
-    xhr.open('HEAD', url, false);
+    xhr.open('HEAD', url);
 
     try {
       xhr.send();
@@ -88,7 +88,7 @@
   // https://www.whatismybrowser.com/guides/the-latest-user-agent/macos
 
 
-  var isMacOSWebView = /Macintosh/.test(navigator.userAgent) && /AppleWebKit/.test(navigator.userAgent) && !/Safari/.test(navigator.userAgent);
+  var isMacOSWebView = _global.navigator && /Macintosh/.test(navigator.userAgent) && /AppleWebKit/.test(navigator.userAgent) && !/Safari/.test(navigator.userAgent);
   var saveAs = _global.saveAs || ( // probably in some web worker
   typeof window !== 'object' || window !== _global ? function saveAs() {}
   /* noop */
