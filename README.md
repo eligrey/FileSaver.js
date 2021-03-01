@@ -139,6 +139,7 @@ Installation
 ```bash
 # Basic Node.JS installation
 npm install file-saver --save
+yarn add file-saver
 bower install file-saver
 ```
 
