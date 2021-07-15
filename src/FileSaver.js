@@ -34,6 +34,7 @@ function bom (blob, opts) {
 function download (url, name, opts) {
   var xhr = new XMLHttpRequest()
   xhr.open('GET', url)
+  xhr.withCredentials = true;
   xhr.responseType = 'blob'
   xhr.onload = function () {
     saveAs(xhr.response, name, opts)
@@ -48,6 +49,7 @@ function corsEnabled (url) {
   var xhr = new XMLHttpRequest()
   // use sync to avoid popup blocker
   xhr.open('HEAD', url, false)
+  xhr.withCredentials = true;
   try {
     xhr.send()
   } catch (e) {}
