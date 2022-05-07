@@ -60,10 +60,13 @@ import { saveAs } from 'file-saver';
 ```
 
 ```js
-FileSaver saveAs(Blob/File/Url, optional DOMString filename, optional Object { autoBom })
+FileSaver saveAs(Blob/File/Url, optional DOMString filename, optional Object { autoBom, headers, postData })
 ```
+Optional Object:
 
-Pass `{ autoBom: true }` if you want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)). Note that this is only done if your blob type has `charset=utf-8` set.
+- Pass `{ autoBom: true }` if you want FileSaver.js to automatically provide Unicode text encoding hints (see: [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark)). Note that this is only done if your blob type has `charset=utf-8` set.
+- Pass `{ headers: object }` if you want append headers when fetch data from remote url.
+- Pass `{ postData: object }` if you want send data when post data from remote url.
 
 Examples
 --------
