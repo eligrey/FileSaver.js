@@ -102,7 +102,9 @@ var saveAs = _global.saveAs || (
       }
     } else {
       // Support blobs
-      a.href = URL.createObjectURL(blob)
+      let binaryData = []
+      binaryData.push(blob)
+      a.href = URL.createObjectURL(new Blob(binaryData))
       setTimeout(function () { URL.revokeObjectURL(a.href) }, 4E4) // 40s
       setTimeout(function () { click(a) }, 0)
     }
@@ -156,7 +158,9 @@ var saveAs = _global.saveAs || (
       reader.readAsDataURL(blob)
     } else {
       var URL = _global.URL || _global.webkitURL
-      var url = URL.createObjectURL(blob)
+      let binaryData = []
+      binaryData.push(blob)
+      var url = URL.createObjectURL(new Blob(binaryData))
       if (popup) popup.location = url
       else location.href = url
       popup = null // reverse-tabnabbing #460
