@@ -88,7 +88,7 @@
   // https://www.whatismybrowser.com/guides/the-latest-user-agent/macos
 
 
-  var isMacOSWebView = /Macintosh/.test(navigator.userAgent) && /AppleWebKit/.test(navigator.userAgent) && !/Safari/.test(navigator.userAgent);
+  var isMacOSWebView = _global.navigator && /Macintosh/.test(navigator.userAgent) && /AppleWebKit/.test(navigator.userAgent) && !/Safari/.test(navigator.userAgent);
   var saveAs = _global.saveAs || ( // probably in some web worker
   typeof window !== 'object' || window !== _global ? function saveAs() {}
   /* noop */
@@ -113,7 +113,7 @@
       }
     } else {
       // Support blobs
-      a.href = URL.createObjectURL(blob);
+      a.href = URL.createObjectURL(bom(blob, opts));
       setTimeout(function () {
         URL.revokeObjectURL(a.href);
       }, 4E4); // 40s
