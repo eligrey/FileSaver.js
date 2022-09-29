@@ -22,7 +22,8 @@ Supported Browsers
 | Firefox < 20   | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
 | Chrome         | Blob          | Yes          | [2GB][3]      | None         |
 | Chrome for Android | Blob      | Yes          | [RAM/5][3]    | None         |
-| Edge           | Blob          | Yes          | ?             | None         |
+| Edge(Legacy)   | Blob          | Yes          | ?             | None         |
+| Edge(Chromium) | Blob          | Yes          | [2GB][3]      | None         |
 | IE 10+         | Blob          | Yes          | 600 MiB       | None         |
 | Opera 15+      | Blob          | Yes          | 500 MiB       | None         |
 | Opera < 15     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
