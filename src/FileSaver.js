@@ -71,6 +71,8 @@ function click (node) {
 // https://www.whatismybrowser.com/guides/the-latest-user-agent/macos
 var isMacOSWebView = _global.navigator && /Macintosh/.test(navigator.userAgent) && /AppleWebKit/.test(navigator.userAgent) && !/Safari/.test(navigator.userAgent)
 
+var isSamsungBrowser = /SamsungBrowser/.test(navigator.userAgent)
+
 var saveAs = _global.saveAs || (
   // probably in some web worker
   (typeof window !== 'object' || window !== _global)
@@ -104,7 +106,12 @@ var saveAs = _global.saveAs || (
       // Support blobs
       a.href = URL.createObjectURL(blob)
       setTimeout(function () { URL.revokeObjectURL(a.href) }, 4E4) // 40s
-      setTimeout(function () { click(a) }, 0)
+      if (isSamsungBrowser) {
+        // SamsungBrowser blocks by default "auto downloads" i.e. not initiated by user interaction (#660)
+        click(a);
+      } else {
+        setTimeout(function () { click(a) }, 0)
+      }      
     }
   }
 
