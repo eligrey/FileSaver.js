@@ -36,6 +36,10 @@ function download (url, name, opts) {
   xhr.open('GET', url)
   xhr.responseType = 'blob'
   xhr.onload = function () {
+    var matches =  /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(xhr.getResponseHeader('Content-Disposition'))
+    if (matches != null && matches[1]) { 
+      name = name || matches[1].replace(/['"]/g, '')
+    }
     saveAs(xhr.response, name, opts)
   }
   xhr.onerror = function () {
