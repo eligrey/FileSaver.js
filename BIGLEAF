@@ -1,0 +1,81 @@
+/**
+
+ * @NApiVersion 2.x
+
+ * @NScriptType Portlet
+
+ * @NModuleScope SameAccount
+
+ */
+
+define(['N/runtime'],
+
+/**
+
+ * @param {portlet} portlet
+
+ */
+
+function(runtime) {
+
+    /**
+
+     * Renders CloudExtend Analytics Portlet.
+
+     *
+
+     * @param {Object} params
+
+     * @param {Portlet} params.portlet - The portlet object 
+
+     * used for rendering
+
+     * @param {number} params.column - Specifies whether portlet 
+
+     * is placed in left (1), center (2) or right (3) 
+
+     * column of the dashboard
+
+     * @param {string} params.entity - (For custom portlets only) 
+
+     * references the customer ID for the selected customer
+
+     * @Since 2015.2
+
+     */
+
+    function renderView(params) {
+
+        params.portlet.title = 'CloudExtend Analytics Portlet';
+
+        var url = runtime.getCurrentScript()
+
+.getParameter({ name: "custscripturl" });
+
+        var height = runtime.getCurrentScript()
+
+             .getParameter({ name: "custscriptheight" });
+
+        var content = '<iframe width="100%" height="' + 
+
+         (height || 500) + 
+
+         '" frameborder="0" scrolling="no" src="' + 
+
+         url + 
+
+         '"></iframe>';
+
+        params.portlet.html = content;
+
+    }
+
+ 
+
+    return {
+
+        render: renderView
+
+    };
+
+});
