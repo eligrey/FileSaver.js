@@ -16,6 +16,17 @@ var _global = typeof window === 'object' && window.window === window
   ? global
   : this
 
+function stripNameOfInvalidChars(name) {
+  var isEdge17_17134 = /Edge\/17.17134/.test(navigator.userAgent)
+  if(isEdge17_17134){
+    var forbiddenChars = ['<', '>', ':', '"', '/', '\\', '|', '?', '*'];
+    for(var i = 0;i < forbiddenChars.length; i++) {
+      name = name.replace(forbiddenChars[i], '_');
+    }
+  }
+  return name;
+}
+
 function bom (blob, opts) {
   if (typeof opts === 'undefined') opts = { autoBom: false }
   else if (typeof opts !== 'object') {
@@ -83,6 +94,7 @@ var saveAs = _global.saveAs || (
     // Namespace is used to prevent conflict w/ Chrome Poper Blocker extension (Issue #561)
     var a = document.createElementNS('http://www.w3.org/1999/xhtml', 'a')
     name = name || blob.name || 'download'
+    name = stripNameOfInvalidChars(name);
 
     a.download = name
     a.rel = 'noopener' // tabnabbing
