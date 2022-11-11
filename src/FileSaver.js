@@ -74,7 +74,7 @@ var isMacOSWebView = _global.navigator && /Macintosh/.test(navigator.userAgent) 
 var saveAs = _global.saveAs || (
   // probably in some web worker
   (typeof window !== 'object' || window !== _global)
-    ? function saveAs () { /* noop */ }
+    ? function saveAs () { /* noop */ console.error('WARNING: FileSaver.saveAs() will not work if called in a web worker. Call it from the main thread instead.') }
 
   // Use download attribute first if possible (#193 Lumia mobile) unless this is a macOS WebView
   : ('download' in HTMLAnchorElement.prototype && !isMacOSWebView)
