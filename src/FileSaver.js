@@ -1,6 +1,6 @@
 /*
 * FileSaver.js
-* A saveAs() FileSaver implementation.
+* A saveAs() FileSaver implementation for blobs.
 *
 * By Eli Grey, http://eligrey.com
 *
