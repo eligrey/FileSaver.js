@@ -77,7 +77,7 @@ var saveAs = _global.saveAs || (
     ? function saveAs () { /* noop */ }
 
   // Use download attribute first if possible (#193 Lumia mobile) unless this is a macOS WebView
-  : ('download' in HTMLAnchorElement.prototype && !isMacOSWebView)
+  : (typeof HTMLAnchorElement !== 'undefined' && 'download' in HTMLAnchorElement.prototype && !isMacOSWebView)
   ? function saveAs (blob, name, opts) {
     var URL = _global.URL || _global.webkitURL
     // Namespace is used to prevent conflict w/ Chrome Poper Blocker extension (Issue #561)
