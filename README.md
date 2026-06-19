@@ -1,14 +1,14 @@
 If you need to save really large files bigger than the blob's size limitation or don't have
 enough RAM, then have a look at the more advanced [StreamSaver.js][7]
 that can save data directly to the hard drive asynchronously with the power of the new streams API. That will have
-support for progress, cancelation and knowing when it's done writing
+support for progress, cancellation and knowing when it's done writing
 
 FileSaver.js
 ============
 
 FileSaver.js is the solution to saving files on the client-side, and is perfect for
 web apps that generates files on the client, However if the file is coming from the
-server we recommend you to first try to use [Content-Disposition][8] attachment response header as it has more cross-browser compatiblity.
+server we recommend you to first try to use [Content-Disposition][8] attachment response header as it has more cross-browser compatibility.
 
 Looking for `canvas.toBlob()` for saving canvases? Check out
 [canvas-toBlob.js][2] for a cross-browser implementation.
