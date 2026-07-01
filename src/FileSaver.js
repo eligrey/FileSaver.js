@@ -73,8 +73,11 @@ var isMacOSWebView = _global.navigator && /Macintosh/.test(navigator.userAgent) 
 
 var saveAs = _global.saveAs || (
   // probably in some web worker
+  // (#779) saveAs() is silently a no-op in a web worker, which makes failures
+  // very hard to diagnose. Surface the misuse to the console instead so the
+  // developer at least sees why their download isn't happening.
   (typeof window !== 'object' || window !== _global)
-    ? function saveAs () { /* noop */ }
+    ? function saveAs () { console.error('FileSaver.js: saveAs() cannot be called from a web worker. See https://github.com/eligrey/FileSaver.js/issues/778') }
 
   // Use download attribute first if possible (#193 Lumia mobile) unless this is a macOS WebView
   : ('download' in HTMLAnchorElement.prototype && !isMacOSWebView)
